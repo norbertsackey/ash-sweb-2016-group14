@@ -21,13 +21,17 @@ class users extends adb{
 	*@param int status status of the user account
 	*@return boolean returns true if successful or false 
 	*/
-	function addUser($userID,$firstname,$lastname,$password,$role){
-		$strQuery="insert into users set
-						userID='$username',
-						firstname='$firstname',
-						lastname='$lastname',
-						password=MD5('$password'),
-						role=$status";
+	function addEquipment($EquipID,$descrip,$price,$category,$manufacturer,$maint_date,$quantiy,status,supplierID){
+		$strQuery="insert into Equipment set
+						descrip='$descrip',
+						price='$price',
+						category='$category',
+						manufacturer='$manufacturer',
+						maint_date='$maint_date',
+						quantiy='$quantiy',
+						status='$status',
+						supplierID='$supplierID';"
+						
 		return $this->query($strQuery);				
 	}
 
