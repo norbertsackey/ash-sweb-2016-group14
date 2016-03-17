@@ -3,36 +3,37 @@
 */
 include_once("adb.php");
 /**
-*Users  class
+*Equipment class
 */
-class users extends adb{
+class Equipment extends adb{
+	
 	function Equipment(){
 		
 	}
 
-	/**
-	* this method adds a new user
-	*@param string username login name
-	*@param string firstname first name
-	*@param string lastname last name
-	*@param string password login password
-	*@param string usergroup group id
-	*@param int permission permission as an int
-	*@param int status status of the user account
-	*@return boolean returns true if successful or false 
-	*/
-	function addEquipment($EquipID,$descrip,$price,$category,$manufacturer,$maint_date,$quantiy,status,supplierID){
-		$strQuery="insert into Equipment set
+
+	function addEquipment($name,$descrip,$price,$category,$manufacturer,$availQuantity,$totalQuantiy,$status,$supplierID){
+		$strQuery="insert into equipment set
+		                name='$name',
 						descrip='$descrip',
 						price='$price',
 						category='$category',
 						manufacturer='$manufacturer',
-						maint_date='$maint_date',
-						quantiy='$quantiy',
+						availQuantity='$availQuantiy',
+						totalQuantity='$totalQuantiy',
 						status='$status',
-						supplierID='$supplierID';"
-						
-		return $this->query($strQuery);				
+						supplierID='$supplierID';";
+				 return $this->query($strQuery);				
+	}
+
+	function searchEquipment($searchTerm){
+		$strQuery="select name,descrip,price,category,manufacturer,availQuantity,totalQuantity,status,supplierID from equipment where name like '%$searchTerm%' or description like '%$searchTerm%' or category like '%$searchTerm%';";
+				 return $this->query($strQuery);				
+	}
+
+	function getEquipment( ){
+		$strQuery="select name,descrip,price,category,manufacturer,availQuantity,totalQuantity,status,supplierID from equipment where name like '%$searchTerm%' or description like '%$searchTerm%' or category like '%$searchTerm%';";
+				 return $this->query($strQuery);				
 	}
 
 	
