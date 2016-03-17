@@ -2,36 +2,62 @@
 /**
 */
 include_once("adb.php");
+
 /**
 *Users  class
 */
-class users extends adb{
-	function Users(){
-
-	}
-
+class users extends adb {
 	/**
-	* this method adds a new user
-	*@param string username login name
-	*@param string firstname first name
-	*@param string lastname last name
-	*@param string password login password
-	*@param string usergroup group id
-	*@param int permission permission as an int
-	*@param int status status of the user account
-	*@return boolean returns true if successful or false 
+	*Searches for user by username, fristname, lastname 
+	*@param string text search text
+	*@return boolean true if successful, else false
 	*/
-	function addUser($userID,$firstname,$lastname,$password,$role){
-		$strQuery="insert into users set
-						userID='$username',
-						firstname='$firstname',
-						lastname='$lastname',
-						password=MD5('$password'),
-						role=$status";
-		return $this->query($strQuery);				
+	function searchUsers($text=false){
+		$filter=false;
+		if($text!=false){
+			$filter=" USERNAME like '%$text%' or FIRSTNAME like '%$text%' or LASTNAME like '%$text%' ";
+		}
+		
+		return $this->getUsers($filter);
 	}
 
-	
+	/*
+	*search for tool
+	*
+	*/
+	function searchTool()
 
+	/*
+	*search for the user by usergroup
+	*@param $text, the text used to search the database for similar text
+	*/
+	function searchUserGroup($text=false) {
+		$filter=false;
+		if($text!=false) {
+			$filter = ("USERGROUP LIKE '$text'");
+		}
+		
+		return $this->getUsers($filter);
+	}
+
+	/*
+	* Searches the user's group
+	*/
+	function searchingUserGroup($text=false, $usergroup=false) {
+		$filter=false;
+		if($text!=false && $usergroup!=false) {
+			$filter = ("FIRSTNAME LIKE '%$text%' or USERNAME LIKE '%text%') and USERGROUP=$usergroup");
+		}
+
+		else if($text !=false and $usergroup==false) {
+			$filter = "FIRSTNAME LIKE '%$text%' or USERNAME LIKE '%text%'";
+		}
+
+		else {
+			$filter = "USERGROUP='$usergroup'";
+		}
+		
+		return $this->getUsers($filter);
+	}
 }
 ?>
