@@ -1,11 +1,12 @@
 <?php
 
 /**
+* Including the adb class
 */
 include_once("adb.php");
 
 /**
-*Equipment class
+*Equipment class extends the adb class
 */
 class equipment extends adb {
 
@@ -21,7 +22,6 @@ class equipment extends adb {
 		} 
 		return $this->query($strQuery);
 	}
-
 
 	/**
 	*Searches tools based on the filter

@@ -31,19 +31,19 @@
 
 <?php
 
-	//1) Create object of equipment class
+	/* Creates an object of the equipment class */
 	include_once("equipment.php");
 	$obj = new equipment();
 	$filter = false;
 
-	// Search Equipments by text
+	/* Search Equipments by text */
 	if (isset($_REQUEST['txtSearch'])) {
 		$filter = $_REQUEST['txtSearch'];
 		echo $filter; echo " is in the filter";
 		$row = $obj->searchTool($filter);
 	}
 
-	// Display all tools
+	/* Display all tools */
 	else {
 		$row = $obj->searchTool($filter);
 	}
@@ -52,7 +52,7 @@
 		echo "Error searching tools";
 	}
 	
-	// Display
+	/* Display */
 		echo "<table border='1'>";
 
 			echo "<tr bgcolor='lightgrey'>";
