@@ -63,7 +63,6 @@
 				echo "<td> EQUIP_CATEGORY </td>";
 				echo "<td> EQUIP_PRICE </td>";
 				echo "<td> EQUIP_MANUFACTURER </td>";
-				echo "<td> </td>";
 			echo "</tr>";
 
 		while ($row = $obj->fetch()) {
