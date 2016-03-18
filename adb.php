@@ -31,6 +31,7 @@ class adb{
 	*@param string $strQuery sql string to execute
 	*/
 	function query($strQuery){
+		echo $strQuery;
 		if(!$this->connect()){
 			return false;
 		}
@@ -61,7 +62,7 @@ class adb{
 	}
 }
 
-/* U N I T  T E S T */
+/* U N I T  T E S T 
 //This is a test code
 $obj=new adb();
 if(!$obj->query("select * from equipment"))
@@ -70,5 +71,5 @@ if(!$obj->query("select * from equipment"))
 	exit();
 }
 print_r($obj->fetch());
-
+*/
 ?>

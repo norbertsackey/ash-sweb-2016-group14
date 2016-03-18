@@ -31,8 +31,8 @@ class equipment extends adb {
 	function searchTool($text=false) {
 		$filter=false;
 		if($text!=false) {
-			$filter= "EQUIP_ID like '%text%' or EQUIP_NAME like '%text%' or EQUIP_DESCRIPTION like '%text%' or EQUIP_STATUS like '%text%'
-						or EQUIP_CATEGORY like '%text%' or EQUIP_PRICE like '%text%' or EQUIP_MANUFACTURER like '%text%'";
+			$filter= "EQUIP_ID like '%$text%' or EQUIP_NAME like '%$text%' or EQUIP_DESCRIPTION like '%$text%' or EQUIP_STATUS like '%$text%'
+						or EQUIP_CATEGORY like '%$text%' or EQUIP_PRICE like '%$text%' or EQUIP_MANUFACTURER like '%$text%'";
 		}
 		return $this->getTools($filter);
 	}
