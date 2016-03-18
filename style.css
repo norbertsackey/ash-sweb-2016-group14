@@ -52,19 +52,14 @@ body{
 
 #pageheader
 {
-    margin-right: 0;
     height: 1in;
-    width: 100%;
-    background-color: black;
+    background-color: #FFCC66;
     font-size: large;
     text-align: center;
-    color: white;
-
 }
 
-/* You madeH E R E */
 #mainnav{
-	width: 1px;
+	width:2in;
 	vertical-align:top
 }
 
@@ -203,14 +198,13 @@ table.container {
 
 }
 
+
+
+
 #divPageMenu {
     margin-top: 10px;
     padding-top: 10px;
     margin-bottom: 40px;
     margin-left: 20px;
     margin-right: 20px;
-}
-
-#divContent {
-    margin-left: 0;
 }
