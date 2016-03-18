@@ -1,14 +1,14 @@
 <html>
 	<head>
 		<title>Search tools</title>
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="style.css">
 		
 	</head>
 	<body>
 		<table>
 			<tr>
 				<td colspan="2" id="pageheader">
-					LABS
+					LAB INVENTORY
 				</td>
 			</tr>
 			<tr>
@@ -39,7 +39,6 @@
 	/* Search Equipments by text */
 	if (isset($_REQUEST['txtSearch'])) {
 		$filter = $_REQUEST['txtSearch'];
-		echo $filter; echo " is in the filter";
 		$row = $obj->searchTool($filter);
 	}
 
@@ -56,7 +55,7 @@
 		echo "<table border='1'>";
 
 			echo "<tr bgcolor='lightgrey'>";
-				echo "<td> EQUIP_ALVIN </td>";
+				echo "<td> EQUIP_ID </td>";
 
 				echo "<td> EQUIP_NAME </td>";
 				echo "<td> EQUIP_DESCRIPTION </td>";

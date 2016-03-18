@@ -31,7 +31,6 @@ class adb{
 	*@param string $strQuery sql string to execute
 	*/
 	function query($strQuery){
-		echo $strQuery;
 		if(!$this->connect()){
 			return false;
 		}

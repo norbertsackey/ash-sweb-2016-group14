@@ -31,7 +31,7 @@ body{
 
 .menuitem {
 	text-decoration:none;
-	background-color:#f37520;
+	background-color:black;
     color:#fff;
 	cursor:hand;
     border: 1px solid none;
@@ -53,9 +53,10 @@ body{
 #pageheader
 {
     height: 1in;
-    background-color: #FFCC66;
+    background-color:black;
     font-size: large;
     text-align: center;
+    color: white;
 }
 
 #mainnav{
