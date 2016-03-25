@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <form method="post" action="Labs.php">
+
+    <div data-role="fieldcontain" style ="background-color:lightblue">
+     <label>
+       <div>
+         <label>Lab ID:</label>
+         <input type="text"id="meter">
+       </div>
+       <div>
+         <label>Lab Name:</label>
+         <input type="text" id="name">
+       </div>
+       <div>
+        <label>Equipment ID:</label>
+        <input type="text"id="equip_id">
+      </div>
+      <div>
+       <div>
+        <label>Supplier ID:</label>
+        <input type="text"id="sup_id">
+      </div>
+      <div>
+        <label>Lab Capacity:</label>
+        <input type="text" id="capacity">
+      </div>
+      <div>
+        <label>Location</label>
+        <select id="location">
+          <option value="undefined">Select</option>
+          <option value="221">Lab 221</option>
+          <option value="222">Lab 222</option>
+        </select>
+      </div>
+      <div>
+        <input type ="button" value="submit" onclick="addLab()">   
+        <a href="labs.php">Add Lab</a>
+        <a href="viewLabs.php">View Labs</a> 
+      </div>
+    </form>
+
+    <div data-role="footer" style ="background-color:blue">
+      <h1>Next</h1>
+    </div>
+  </body>
+  </html>
+
+  -<script type="text/javascript">
+  function sendRequest(u)
+  {
+    prompt("l", u);
+    var obj=$.ajax({url:u,async:false});
+    prompt("l", obj.status);
+    /*Convertion is done from JSON string to object*/
+    var result=$.parseJSON(obj.responseText);
+    prompt("2", obj.status);
+    /*return object*/
+    return result;  
+  }
+  function addLab()
+  {
+    prompt("u");
+    var id=$("#id").val();
+    var name =$("#name").val();
+    var capacity =$("#capacity").val();
+    var loc = document.getElementById("location");
+    var location = loc.options[loc.selectedIndex].text;
+    prompt("u");
+    alert (location);
+
+    var theUrl="http://cs.ashesi.edu.gh/class2016/margaret-ayodele/SE/index.php?cmd=1&id="+id+"&name="+name+"
+    &capacity="+capacity+"&location="+location;
+
+    prompt("u",theUrl);
+    var obj=sendRequest(theUrl);
+    /*send request to the above url*/
+    var obj=sendRequest(theUrl);    
+    /*check result*/
+    if(obj.result==1)
+    {         
+      /*set div with the description from the result*/
+      $("#message").text("Data submited successfully");   
+      $("#message").css("backgroundColor","green");   
+      /*show the div element*/                                    
+      $("#message").show();       /
+    }else
+    {
+      /*show error message*/
+      $("#message").text("error while submitting data");
+      $("#message").css("backgroundColor","red");
+      $("#message").show();
+    }    
+  }
+  function view()
+  {
+    var theUrl="http://cs.ashesi.edu.gh/~csashesi/class2016/margaret-ayodele/SoftwareProject/labAjax.phpcmd=2";
+    var obj=sendRequest(theUrl); 
+
+    /*send request to the above url*/
+    if(obj.result==0)
+    {
+      alert("the database is empty");
+    }
+    if(obj.result==1)
+    {  
+      alert( "check"+obj.message.length);
+
+      for(var count=0; count<obj.message.length; count++)
+      {
+        $("ol").append("<li>" + obj.message[count].equipID +
+         " "+obj.message[count].labName + 
+         " "+obj.message[count].labId + 
+         " "+obj.message[count].capacity + 
+         " "+ obj.message[count].location+"</li> " + 
+         "</ol>");
+      }
+    }    
+  }
+  </script>
+  </html>
+
