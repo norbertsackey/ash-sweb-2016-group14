@@ -82,7 +82,7 @@
 			echo "<td>{$row["descrip"]}</td>";
 			echo "<td>{$row["category"]}</td>";
 			echo "<td>{$row["manufacturer"]}</td>";
-			echo "<td><a href=equipmentBookings.php?Eid="."{$row['EquipID']}"."&cmd={$cmd2}".">".$cmd2."<a></td>";
+			echo "<td><a href=bookingcontroller.php?Eid="."{$row['EquipID']}"."&cmd={$cmd2}".">".$cmd2."<a></td>";
 			echo "</tr>";
 			$row= $obj->fetch();
 			$i++;

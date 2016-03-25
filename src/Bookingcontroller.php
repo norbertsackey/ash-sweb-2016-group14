@@ -10,15 +10,15 @@
 
       if($command=='Reserve'){
 
-         if(!$r=$obj->bookEquipment($EquipID)){
+         if(!$r=$obj->bookEquipment($EquipID,14771020)){
             echo "Error reserving equipment";
          }
          else
           echo "equipment reserved successfully";
       }
-     else if($command=='Unreserve'){
+     else if($command=='Unbook'){
 
-         if(!$r=$obj->unbookEquipment($EquipID)){
+         if(!$r=$obj->unbookEquipment($EquipID,14771020)){
              echo "Error releasing equipment";
          }
          else
