@@ -1,11 +1,11 @@
 <?php
 /**
-	*@Author : Margaret Morenike Ayodele
-	*@Date: 16th March, 2016
+	*@Author :  Margaret Morenike Ayodele
+	*@Date:     16th March, 2016
 	*@Assignment: Webtechnology Implementation Assignment
 	*@category   Inventory Management
 	*@package    Laboratories
-	*@version    2.0
+	*@version    1.0
 	*@param      declares $lab_name, $lab_id, $lab_capacity & $lab_location, $equip_id & 
 	*            $supplier_id as variables of Labs class 
 **/
