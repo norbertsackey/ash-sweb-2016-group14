@@ -1,8 +1,8 @@
 <?php
 /**
 		*@Author:    Margaret Morenike Ayodele
-		*@Date:      16th Mrach, 2016
-		*@Assignment:Webtechnolgy Implementation Assignment
+		*@Date:      16th March, 2016
+		*@Assignment:Webtechnolgy Implementation
 		*@category   Inventory Management
 		*@package    Ajax
 		*@version    2.2
