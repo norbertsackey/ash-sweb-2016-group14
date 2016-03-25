@@ -62,18 +62,22 @@
 				echo "<td> EQUIP_CATEGORY </td>";
 				echo "<td> EQUIP_PRICE </td>";
 				echo "<td> EQUIP_MANUFACTURER </td>";
+				echo "<td> LAB_ID </td>";
+				echo "<td> SUPPLIER_ID </td>";
 			echo "</tr>";
 
 		while ($row = $obj->fetch()) {
 
 		echo "<tr>
-				<td> {$row['EQUIP_ID']} </td>
-				<td> {$row['EQUIP_NAME']} </td>
-				<td> {$row['EQUIP_DESCRIPTION']} </td>
-				<td> {$row['EQUIP_STATUS']} </td>
-				<td> {$row['EQUIP_CATEGORY']} </td>
-				<td> {$row['EQUIP_PRICE']} </td>
-				<td> {$row['EQUIP_MANUFACTURER']} </td>";
+				<td> {$row['Equip_ID']} </td>
+				<td> {$row['Equip_Name']} </td>
+				<td> {$row['Equip_Description']} </td>
+				<td> {$row['Equip_Status']} </td>
+				<td> {$row['Equip_Category']} </td>
+				<td> {$row['Equip_Price']} </td>
+				<td> {$row['Equip_Manufacturer']} </td>
+				<td> {$row['Lab_Id']} </td>
+				<td> {$row['Supplier_Id']} </td>";
 		echo "</tr>";
 	}
 		echo "</table>";

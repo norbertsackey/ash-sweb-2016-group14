@@ -16,7 +16,7 @@ class equipment extends adb {
 	*@return boolean true if successful, else false
 	*/
 	function getTools($filter=false) {
-		$strQuery="SELECT EQUIP_ID, EQUIP_NAME, EQUIP_DESCRIPTION, EQUIP_STATUS, EQUIP_CATEGORY, EQUIP_PRICE, EQUIP_MANUFACTURER FROM equipment";
+		$strQuery="SELECT Equip_ID, Equip_Name, Equip_Description, Equip_Status, Equip_Category, Equip_Price, Equip_Manufacturer, Lab_Id, Supplier_Id FROM equipment";
 		if($filter!=false) {
 			$strQuery=$strQuery . " where $filter";
 		} 
@@ -31,8 +31,8 @@ class equipment extends adb {
 	function searchTool($text=false) {
 		$filter=false;
 		if($text!=false) {
-			$filter= "EQUIP_ID like '%$text%' or EQUIP_NAME like '%$text%' or EQUIP_DESCRIPTION like '%$text%' or EQUIP_STATUS like '%$text%'
-						or EQUIP_CATEGORY like '%$text%' or EQUIP_PRICE like '%$text%' or EQUIP_MANUFACTURER like '%$text%'";
+			$filter= "Equip_Id like '%$text%' or Equip_Name like '%$text%' or Equip_Description like '%$text%' or Equip_Status like '%$text%'
+						or Equip_Category like '%$text%' or Equip_Price like '%$text%' or Equip_Manufacturer like '%$text%' or Lab_Id like '%text%' or Supplier_Id like '%text%'";
 		}
 		return $this->getTools($filter);
 	}
