@@ -3,9 +3,9 @@
 	/**
 	    *@Author : Margaret Morenike Ayodele
 	    *@Date: 16th march, 2016
-		*@Assignment: Webtechnology Implementation Assignment
+	    *@Assignment: Webtechnology Implementation Assignment
 	    *@category   Inventory Management
-		*@package     Test Laboratories 
+            *@package     Test Laboratories 
 	*/
 
 	require ('labs.php');
@@ -24,12 +24,12 @@
             *@method boolean testadd_lab() allows an admin to add labs
             *by their names, id and physical locations 
             *@param String $lab_name// The name of a lab
-	        *@param integer $lab_id// The assigned id of a lab
-	        *@param varchar $lab_location// The assigned location of a lab
-	        *@param integer $capacity// The equipment capacity of a lab
-	        *@param integer $equip_id// The assigned id for an equipment
-	        *@param integer $supplierID// The assigned id for a supplier
-	        *@return $this->assertsEquals()//this returns true or false 
+	    *@param integer $lab_id// The assigned id of a lab
+	    *@param varchar $lab_location// The assigned location of a lab
+	    *@param integer $capacity// The equipment capacity of a lab
+	    *@param integer $equip_id// The assigned id for an equipment
+	    *@param integer $supplierID// The assigned id for a supplier
+	    *@return $this->assertsEquals()//this returns true or false 
         **/
 	    public function testadd_lab()
 	    {
@@ -44,10 +44,10 @@
             *@method boolean testsearch_lab() allows a user to search labs
             *by their names, id and physical locations 
             *@param String $lab_name// The name of a lab
-	        *@param integer $lab_id// The assigned id of a lab
-	        *@param varchar $lab_location// The assigned location of a lab
-	        *@param integer $equip_id// The assigned id for an equipment
-	        *@return $this->assertsEquals()//this returns true or false 
+	    *@param integer $lab_id// The assigned id of a lab
+	    *@param varchar $lab_location// The assigned location of a lab
+	    *@param integer $equip_id// The assigned id for an equipment
+	    *@return $this->assertsEquals()//this returns true or false 
         **/
 	    public function testsearch_lab()
 	    {
@@ -62,10 +62,10 @@
             *@method boolean testadd_lab() allows an admin to update labs
             *by their names, id and physical locations 
             *@param String $lab_name// The name of a lab
-	        *@param integer $lab_id// The assigned id of a lab
-	        *@param varchar $lab_location// The assigned location of a lab
-	        *@param integer $capacity// The equipment capcity of a lab
-	        *@return $this->assertsEquals()//this returns true or false 
+	    *@param integer $lab_id// The assigned id of a lab
+	    *@param varchar $lab_location// The assigned location of a lab
+	    *@param integer $capacity// The equipment capcity of a lab
+	    *@return $this->assertsEquals()//this returns true or false 
         **/ 
 	    public function testedit_Labs()
 	    {
@@ -79,8 +79,8 @@
          /**
             *@method boolean testadd_lab() allows an admin to remove labs
             *by their names, id and physical locations 
-	        *@param integer $lab_id// The assigned id of a lab
-	        *@return $this->assertsEquals()//this returns true or false 
+	    *@param integer $lab_id// The assigned id of a lab
+	    *@return $this->assertsEquals()//this returns true or false 
         **/
 	    public function testdelete_lab()
 	    {
