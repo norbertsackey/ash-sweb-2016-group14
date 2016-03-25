@@ -16,7 +16,6 @@
 
 	    public function setUp()
 	    {
-
 	        $lab = new Labs();
 	    }
 	    
