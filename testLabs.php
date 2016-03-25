@@ -3,7 +3,7 @@
 	/**
 	    *@Author : Margaret Morenike Ayodele
 	    *@Date: 16th March, 2016
-		*@Assignment: Webtechnology Implementation Assignment
+	    *@Assignment: Webtechnology Implementation Assignment
 	    *@category   Inventory Management
 		*@package     Test Labs
 	*/
