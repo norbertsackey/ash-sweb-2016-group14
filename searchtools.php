@@ -56,7 +56,6 @@
 
 			echo "<tr bgcolor='lightgrey'>";
 				echo "<td> EQUIP_ID </td>";
-
 				echo "<td> EQUIP_NAME </td>";
 				echo "<td> EQUIP_DESCRIPTION </td>";
 				echo "<td> EQUIP_STATUS </td>";
