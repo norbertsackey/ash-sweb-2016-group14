@@ -69,9 +69,9 @@
 			
 			echo "<tr $style >";
 			echo "<td>{$row["User_Id"]}</td>";
-			echo "<td>{$row["Equip_Id"]}</td>";
+			echo "<td>{$row["Equip_ID"]}</td>";
 			echo "<td>{$row["time_Booked"]}</td>";
-			echo "<td><a href=bookingcontroller.php?Eid="."{$row['Equip_Id']}"."&cmd=Unbook".">Unbook<a></td>";
+			echo "<td><a href=bookingcontroller.php?Equip_ID="."{$row['Equip_ID']}"."&cmd=Unreserve".">Unreserve<a></td>";
 			echo "</tr>";
 			$row= $obj->fetch();
 			$i++;

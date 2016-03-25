@@ -19,9 +19,9 @@ class Booking extends adb {
 	*@return boolean returns true if successful or false 
 	*/
      
-    function addBooking($User_Id,$Equip_Id) {
+    function addBooking($Equip_Id,$User_Id) {
         $strQuery = "insert into bookings set
-                        User_Id = $User_Id,
+                        User_Id = '$User_Id',
 		                Equip_Id='$Equip_Id';";
         return $this->query($strQuery);
     }
@@ -31,7 +31,7 @@ class Booking extends adb {
 *@param int userID ID of student who booked equipment
 */
      function searchBookings($User_Id) {
-        $strQuery = "select Equip_Id,User_Id from bookings where User_Id= '$User_Id'";
+        $strQuery = "select Equip_ID,User_Id from bookings where User_Id= '$User_Id'";
         return $this->query($strQuery);
     }
 
@@ -40,7 +40,7 @@ class Booking extends adb {
 	*@return boolean returns true if successful or false 
 	*/
     function getBookings() {
-        $strQuery = "select User_Id,Equip_Id,time_Booked from bookings;";
+        $strQuery = "select User_Id,Equip_ID,time_Booked from bookings;";
         return $this->query($strQuery);
     }
 

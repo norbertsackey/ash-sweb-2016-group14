@@ -43,54 +43,62 @@
 
 	if(isset($_REQUEST['txtSearch'])){
 		$search_txt = $_REQUEST['txtSearch'];
-	   if(!$obj->searchEquipment($search_txt)){
+	   if(!$obj->searchTool($search_txt)){
 			echo "Error searching for Equipment";
 	   }
 	}
 	else{
-	    if(!$obj->getEquipment()){
+	    if(!$obj->getTools()){
 			echo "Error getting Equipment";
 	   }
 	}
 
 
-	  $row=$obj->fetch(); 
-	  echo "<table border='1'>";
-	  echo "<tr style='background-color:olive; text-align:center ;font-family:Georgia'><td>Name</td><td>Description</td><td>Category</td><td>Manufacturer</td><td>Status</td></tr>";
-	  $style="";
-	   $i=0;
-	 while($row){
-        
-        $cmd2="";
-	 	$status1 = $row['availQuantity'];
-	 	$status2 = $row['totalQuantity'];
-	 	if($status2>$status1){
-	 		$cmd2 = 'Reserve';
-	   }
-	 	else if($status2==$status1){
-	 		$cmd2 = 'Unreserve';
-	 	}
+	  
 
-	 	if($i%2==0){
-				$style="style='background-color:Khaki;font-family:Georgia'";
-			}else{
-				$style="style='font-family:Georgia'";
-			}
-			
-			echo "<tr $style >";
-			echo "<td>{$row["name"]}</td>";
-			echo "<td>{$row["descrip"]}</td>";
-			echo "<td>{$row["category"]}</td>";
-			echo "<td>{$row["manufacturer"]}</td>";
-			echo "<td><a href=bookingcontroller.php?Eid="."{$row['EquipID']}"."&cmd={$cmd2}".">".$cmd2."<a></td>";
+	$row=$obj->fetch();  	
+	 	/* Display */
+		echo "<table border='1'>";
+
+			echo "<tr bgcolor='lightgrey'>";
+				echo "<td> EQUIP_ID </td>";
+				echo "<td> EQUIP_NAME </td>";
+				echo "<td> EQUIP_DESCRIPTION </td>";
+				echo "<td> EQUIP_STATUS </td>";
+				echo "<td> EQUIP_CATEGORY </td>";
+				echo "<td> LAB_ID </td>";
+				echo "<td> RESERVE </td>";
+
 			echo "</tr>";
-			$row= $obj->fetch();
-			$i++;
-		
 
+		while ($row) {
+			$cmd="";
+   		    $status = $row['Equip_Status'];
+	       if($status=="Available"){
+	 		$cmd = 'Reserve';
+	        }
+	   else if($status=="Reserved"){
+	 		$cmd = 'Unavailable';
 
-	 } 	
-	?>						
+	   }
+	else{
+	 		$cmd = 'Unknown';
+
+	   }
+
+		echo "<tr>
+				<td> {$row['Equip_ID']} </td>
+				<td> {$row['Equip_Name']} </td>
+				<td> {$row['Equip_Description']} </td>
+				<td> {$row['Equip_Status']} </td>
+				<td> {$row['Equip_Category']} </td>
+				<td> {$row['Lab_Id']} </td>";
+				echo "<td><a href=bookingcontroller.php?Equip_ID="."{$row['Equip_ID']}"."&cmd={$cmd}".">".$cmd."<a></td>";
+			    echo "</tr>";
+				$row=$obj->fetch(); 
+	}
+		echo "</table>";
+?>	
 						</div>
 					</td>
 				</tr>

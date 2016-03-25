@@ -49,10 +49,10 @@ class Equipment extends adb {
 	*@return boolean returns true if query is successful or false otherwise
 	*/
 
-    function bookEquipment($Equip_Id,$User_Id) {
-        $newBooking = new Booking();
-        $newBooking->addBooking($Equip_Id,$User_Id);
-        $strQuery2 = "update equipment set Equip_Status = 'Reserved' where EquipID = '$EquipID';";
+    function bookEquipment($Equip_ID,$User_Id) {
+        /*$newBooking = new Booking();
+        $newBooking->addBooking($Equip_Id,$User_Id);*/
+        $strQuery2 = "update equipment set Equip_Status = 'Reserved' where Equip_ID = '$Equip_ID';";
         return $this->query($strQuery2);
     }
 
@@ -62,11 +62,11 @@ class Equipment extends adb {
 	*@return boolean returns true if query is successful or false otherwise
 	*/
 
-    function unbookEquipment($Equip_Id,$User_Id) {
+    function unbookEquipment($Equip_ID,$User_Id) {
      
-       $strQuery2 = "update equipment set Equip_Status = 'Reserved' where Equip_Id = '$Equip_Id';";
-       $strQuery1 = "delete from bookings where Equip_Id = '$Equip_Id' AND User_Id = '$User_Id';";
-       $this->query($strQuery2);
+   /*    $strQuery2 = "update equipment set Equip_Status = 'Available' where Equip_ID = '$Equip_ID';";*/
+       $strQuery1 = "delete from bookings where Equip_ID = '$Equip_ID' AND User_Id = '$User_Id';";
+  
 
        return $this->query($strQuery1);
 
