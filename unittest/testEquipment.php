@@ -1,4 +1,4 @@
-<?php
+<?ph
 include_once("..\equipment.php");
 
 class testAdb extends PHPUnit_Framework_TestCase
@@ -6,23 +6,23 @@ class testAdb extends PHPUnit_Framework_TestCase
     public function testGetTools()
     {
 		// generate test equipment id
-		$strTestEquipID=random_bytes(10);
+		//$strTestEquipID=random_bytes(10);
         $obj=new equipment();
 		
         $this->assertEquals(true, 
 		$obj->getTools(
 			$strTestEquipID,// username sername
-			"Volt Meter",	//Equip name
-			"It is an equipment",	//Equip Description
-			"Reserved",			//Equip Status
-			"electrical",			//Equip Category
-			544,			//Equip Price 
-			Fluke			//Equip Manufacturer
-			1236			//Lab Id
-			2222			//Supplier Id
+			'Equip_name',	//Equip name
+			'Equip_Description',	//Equip Description
+			'Equip_Status',			//Equip Status
+			'Equip_Category',			//Equip Category
+			'Equip_Price',			//Equip Price 
+			'Equip_Manufacturer'			//Equip Manufacturer
+			'Lab_Id'			//Lab Id
+			'Supplier_Id'			//Supplier Id
 			));
 			
-		$this->assertEquals(true,$obj->query("select * from users where Equip_ID='$strTestEquipID'"));
+		$this->assertEquals(true,$obj->query("select * from users"));
 		//count the number of fields
 		$this->assertCount(7,$obj->fetch());
     }
