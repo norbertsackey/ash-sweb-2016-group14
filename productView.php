@@ -2,47 +2,37 @@
 
 	//1) Create object of products class
 	include_once ("products.php");
-     $obj = new lab_tools();
+     $obj = new equipment();
+    $filter = false;
+
+
+    $row = $obj->getequipment();
 	
-	//2) Call the object's gettools_lab method and check for error
-                    //search for Products
-                if(isset($_REQUEST['txtSearch'])){
-                     $obj->searchlabTools($_REQUEST['txtSearch']);
-                  }else {
-$r=$obj-> getlab_tools();
-                    }
-                    if(!$r){
-                        echo "error getting Tools";
-}
-                    
-          if (!$obj->getlab_tools())  {
-              echo "error";
-//          }        
-//	return $this->getProducts($filter);
-                    
+
+    if(!$row) {
+        echo "Error getting tools";
+    }                 
 	
 	//3) show the result
-                    echo "<table border='1' ><tr><td>Tool ID</td><td>Manufacturer NAME</td><td>Tool Name</td><td>Qunatity</td><td>Date Added</td><td> Status</td><td>Precautions</td><td>Lab Number</td></tr>";
+                    echo "<table border='1' ><tr><td>Equipment ID</td><td>Equipment Name</td><td>Equipment Description</td><td>Equipment Status</td><td>Equipment Category</td><td> Equipment Price</td><td> Equipment Manufacturer</td><td>Lab Id</td><td> Supplier Id</td></tr>";
+              //$row=$obj->fetch ();
                         
-while ($row=$obj->fetch ()){
+while ($row=$obj->fetch()){
     echo "<tr>";
-    echo "<td> {$row['tool_id']}</td>";
-   echo "<td>{$row['manufacturer_name']}</td>";
-    echo "<td>{$row['tool_name']}</td>";
-    echo "<td>{$row['quantity']}</td>";
-    echo "<td>{$row['date_added']}</td>";
-     echo "<td>{$row['status']}</td>";
-        echo "<td>{$row['precautions']}</td>";
-        echo "<td>{$row['lab_no']}</td>";
+        echo "<td> {$row['Equip_ID']}</td>";
+        echo "<td>{$row['Equip_Name']}</td>";
+        echo "<td>{$row['Equip_Description']}</td>";
+        echo "<td>{$row['Equip_Status']}</td>";
+        echo "<td>{$row['Equip_Category']}</td>";
+        echo "<td>{$row['Equip_Price']}</td>";
+        echo "<td>{$row['Equip_Manufacturer']}</td>";
+        echo "<td>{$row['Lab_Id']}</td>";
+        echo "<td>{$row['Supplier_Id']}</td>";
     
-        echo "</tr>";
+    echo "</tr>";
+    // $row=$obj->fetch ();
     }
                     echo "</table>";
-                    
-	
-	
-	
-          }
 	
 	
 ?>
