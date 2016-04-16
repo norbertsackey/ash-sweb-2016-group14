@@ -263,4 +263,11 @@ html, body {
 	background-color: #212121;
 	height: 15%;
 	width: 100%;
+	color: white;
+}
+
+.text {
+	padding-top: 3%;
+	vertical-align: middle;
+	text-align: center;
 }
