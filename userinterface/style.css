@@ -128,19 +128,19 @@ html, body {
 /* H O M E  P A G E */
 
 .header {
-	background-color: black;
-	border-style: solid;
-    border-bottom-color: black;
+	background-color: white;
+	/*border-style: solid;*/
+	border-bottom-color: black;
+	border-bottom-style: solid;
 	width: 100%;
 	height: 15%;
-
 }
 
 #logo {
 	float:left;
 	text-align: center;
-	height: 100%;
-	width: 10%;
+	height: 80%;
+	width: 20%;
 	background-color: yellow;
 }
 
