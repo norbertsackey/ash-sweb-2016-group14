@@ -267,11 +267,15 @@ html, body {
 }
 
 .content {
-	/*background-color: green;*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 70%;
 	width: 100%;
+	text-align: center;
+}
+
+.center-form {
+	padding-top: 5em;
 }
 
 .search {
