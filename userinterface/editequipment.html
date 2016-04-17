@@ -78,7 +78,7 @@
 			<div class="dropdown">
 				<span class="username-text"> Username </span>
 					<div class="dropdown-content">
-							<a href="#"> Logout </a>
+							<a href="login.html"> Logout </a>
 						</div>
 				<img class="usericon" src="images/usericon.png" alt="usericon">
 			</div>
@@ -98,6 +98,21 @@
 
 	<!-- C O N T E N T -->
 	<div class="content">
+
+		<form>
+			<div>Username: <input type="text" name="username"></div>
+			<div>First Name: <input type="text" name="firstname"> </div>
+			<div>Last Name: <input type="text" name="firstname"> </div>
+			<div>Password: <input type="password" name="pword"/></div>
+	<!--In this example the checkboxes are grouped as an array-->		
+				Permission :<input type="checkbox" value="1" name="permission[]"> View
+<input type="checkbox" value="2" name="permission[]"> Edit
+<input type="checkbox" value="4" name="permission[]"> Delete				
+			</div>
+			<div>
+				Account Status: <input type="radio" value="1"> Enabled
+				<input type="radio" value="0"> Disabled
+			</div>
 
 	</div>
 
