@@ -203,7 +203,7 @@ html, body {
 /* D R O P  D O W N S */
 
 /* Equipment */
-/*.dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -231,10 +231,6 @@ html, body {
     display: block;
 }
 
-.dropdown:hover {
-    background-color: #3e8e41;
-    display: block;
-}*/
 
 /* G R E Y  B A R */
 .greybar {
