@@ -173,7 +173,7 @@
 		<form class="center-form" action="" method="POST">
 			<div>Equipment ID: <input type="text" name="username" value="<?php echo $equipid ?>"> </div>
 			<br>
-			<div>Equipment Name: <input type="text" name="firstname"> </div>
+			<div>Equipment Name: <input type="text" name="firstname" value="<?php echo $equipname ?>"> </div>
 			<br>
 			<div>Equipment Description: <input type="text" name="pword" ></div>
 			<br>
