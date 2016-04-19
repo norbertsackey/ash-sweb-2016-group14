@@ -170,8 +170,8 @@
 
 	?>
 
-		<form class="center-form">
-			<div>Equipment ID: <input type="text" name="username"> </div>
+		<form class="center-form" action="" method="POST">
+			<div>Equipment ID: <input type="text" name="username" value="<?php echo $equipid ?>"> </div>
 			<br>
 			<div>Equipment Name: <input type="text" name="firstname"> </div>
 			<br>
