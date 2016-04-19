@@ -120,42 +120,52 @@
 		echo $equipId;
 	}
 
-	if (isset($_REQUEST['username'])) {
-		$username = $_REQUEST['username'];
-		echo $username;
+	if (isset($_REQUEST['Equip_Name'])) {
+		$equipId = $_REQUEST['Equip_Name'];
+		echo $equipId;
 	}
 
-	if (isset($_REQUEST['firstname'])) {
-		$firstname = $_REQUEST['firstname'];
-		echo $firstname;
+	if (isset($_REQUEST['Equip_Description'])) {
+		$equipDescription = $_REQUEST['Equip_Description'];
+		echo $equipDescription;
 	}
 
-	if (isset($_REQUEST['lastname'])) {
-		$lastname = $_REQUEST['lastname'];
-		echo $lastname;
+	if (isset($_REQUEST['Equip_Status'])) {
+		$equipStatus = $_REQUEST['Equip_Status'];
+		echo $equipStatus;
 	}
 
-	if (isset($_REQUEST['password'])) {
-		$password = $_REQUEST['password'];
-		echo $password;
+	if (isset($_REQUEST['Equip_Category'])) {
+		$equipCategory = $_REQUEST['Equip_Category'];
+		echo $equipCategory;
 	}
 
-	if (isset($_REQUEST['permission'])) {
-		$permission = $_REQUEST['permission'];
-		echo $permission;
+	if (isset($_REQUEST['Equip_Price'])) {
+		$equipPrice = $_REQUEST['Equip_Price'];
+		echo $equipPrice;
 	}
 
-	if (isset($_REQUEST['usergroup'])) {
-		$usergroup = $_REQUEST['usergroup'];
-		echo $usergroup;
+	if (isset($_REQUEST['Equip_Manufacturer'])) {
+		$equipManufacturer = $_REQUEST['Equip_Manufacturer'];
+		echo $equipManufacturer;
+	}
+
+	if (isset($_REQUEST['Lab_ID'])) {
+		$labid = $_REQUEST['Lab_ID'];
+		echo $labid;
+	}
+
+	if (isset($_REQUEST['Supplier_ID'])) {
+		$supplier_id = $_REQUEST['Supplier_ID'];
+		echo $supplierId;
 	}
 
 	// Create an object of users
-	$obj = new users();
+	$obj = new equipment();
 
 	// If the usercode request has been set
-	if ($usercode){
-		$obj->getUserInfo($usercode);
+	if ($equipId){
+		$obj->getTools($equipId);
 	}
 
 	?>
