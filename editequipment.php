@@ -168,26 +168,36 @@
 		$obj->getTools($equipId);
 	}
 
+	// If the submit request has been set
+	if (isset($_REQUEST['submit'])) { 
+		$obj->editTool($equipid, $equipname, $equipdescription, $equipstatus, $equipcategory, $equipprice, $equipmanufacturer, $labid, $supplierid);
+
+		// Redirect the page to userlist.php 
+		header('Location: equipment.php');	// CHECK THIS RE-DIRECTION
+		exit;
+	} 
+
 	?>
 
 		<form class="center-form" action="" method="POST">
-			<div>Equipment ID: <input type="text" name="username" value="<?php echo $equipid ?>"> </div>
+			<div>Equipment ID: <input type="text" name="equipid" value="<?php echo $equipid ?>"> </div>
 			<br>
-			<div>Equipment Name: <input type="text" name="firstname" value="<?php echo $equipname ?>"> </div>
+			<div>Equipment Name: <input type="text" name="equipname" value="<?php echo $equipname ?>"> </div>
 			<br>
-			<div>Equipment Description: <input type="text" name="pword" ></div>
+			<div>Equipment Description: <input type="text" name="equipdescription" value="<?php echo $equipdescription?>"> </div>
 			<br>
-			<div>Equipment Status: <input type="text" name="firstname"> </div>
+			<div>Equipment Status: <input type="text" name="equipstatus" value="<?php echo $equipstatus?>"> </div>
 			<br>
-			<div>Equipment Category: <input type="text" name="firstname"> </div>
+			<div>Equipment Category: <input type="text" name="equipcategory" value="<?php echo $equipcategory?>"> </div>
 			<br>
-			<div>Equipment Price <input type="text" name="firstname"> </div>
+			<div>Equipment Price <input type="text" name="equipprice" value="<?php echo $equipprice?>"> </div>
 			<br>
-			<div>Equipment Manufacturer: <input type="text" name="firstname"> </div>
+			<div>Equipment Manufacturer: <input type="text" name="equipmanufacturer" value="<?php echo $equipmanufacturer?>"> </div>
 			<br>
-			<div>Lab ID <input type="text" name="firstname"> </div>
+			<div>Lab ID <input type="text" name="labid" value="<?php echo $labid?>"> </div>
 			<br>
-			<div>Supplier ID <input type="text" name="firstname"> </div>
+			<div>Supplier ID <input type="text" name="supplierid" value="<?php echo $supplierid?>"> </div>
+			<input type="submit" name="submit" value="submit"> </input> 
 		</form>
 
 	</div>
