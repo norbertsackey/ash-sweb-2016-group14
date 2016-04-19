@@ -85,9 +85,9 @@ class equipment extends adb {
 								Equip_Status = '$equipstatus',
 								Equip_Category = '$equipname',
 								Equip_Price = '$equipprice',
-								Equip_Manufacturer '$equipmanufacturer',
-								Lab_Id = '$labid'
-								Supplier_Id = '$supplierid'
+								Equip_Manufacturer ='$equipmanufacturer',
+								Lab_id = '$labid'
+								Supplier_id = '$supplierid'
 							WHERE Equip_ID = '$equipid'";
 
 		if ($this->query($sql)) {
