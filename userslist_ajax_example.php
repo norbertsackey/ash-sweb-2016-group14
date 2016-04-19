@@ -15,7 +15,7 @@
 				divStatus.innerHTML=xhr.responseText;
 				//wirte a code to delete the row from the HTML table
 				
-				
+				wd
 				
 				
 			}
