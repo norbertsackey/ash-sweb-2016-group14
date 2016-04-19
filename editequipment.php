@@ -173,7 +173,7 @@
 		$obj->editTool($equipid, $equipname, $equipdescription, $equipstatus, $equipcategory, $equipprice, $equipmanufacturer, $labid, $supplierid);
 
 		// Redirect the page to userlist.php 
-		header('Location: equipment.php');	// CHECK THIS RE-DIRECTION
+		header('Location: viewequipment.php');	// CHECK THIS RE-DIRECTION
 		exit;
 	} 
 
