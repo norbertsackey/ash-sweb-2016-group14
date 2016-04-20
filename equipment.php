@@ -16,7 +16,7 @@ class equipment extends adb {
 	*@return boolean true if successful, else false
 	*/
 	function getTools($filter=false) {
-		$strQuery="SELECT Equip_ID, Equip_Name, Equip_Description, Equip_Status, Equip_Category, Equip_Price, Equip_Manufacturer, Lab_Id, Supplier_Id FROM equipment";
+		$strQuery="SELECT Equip_ID, Equip_Name, Equip_Description, Equip_Status, Equip_Category, Equip_Price, Equip_Manufacturer, Lab_ID, Supplier_ID FROM equipment";
 		if($filter!=false) {
 			$strQuery=$strQuery . " where $filter";
 		} 
