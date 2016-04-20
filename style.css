@@ -316,8 +316,8 @@ html, body {
 #middlediv {
 	background-color: red;
 	height: 80%;
-	vertical-align: middle;
-	text-align: center;
+	/*vertical-align: middle;
+	text-align: center;*/
 	right: 0;
 	left: 0;
 	top: 0;
