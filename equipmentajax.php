@@ -50,7 +50,7 @@
 		$equipID = $_REQUEST["Equip_ID"];
 		$txtName = $_REQUEST["txtName"];
 
-		// Create an object of users in order to call the editName function
+		// Create an object of users in order to call the editCell function
 		$obj = new equipment();
 		// Call the method editCell()
 		$row = $obj->editCell($equipID,$txtName);

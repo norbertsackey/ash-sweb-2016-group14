@@ -195,14 +195,14 @@
 
 					echo "<tr>";
 						echo 	"<td> {$row['Equip_ID']} </td>";
-						echo	"<td> {$row['Equip_Name']} </td>";
-						echo	"<td> {$row['Equip_Description']} </td>";
-						echo	"<td> {$row['Equip_Status']} </td>";
-						echo    "<td> {$row['Equip_Category']} </td>";
-						echo	"<td> {$row['Equip_Price']} </td>";
-						echo	"<td> {$row['Equip_Manufacturer']} </td>";
-						echo	"<td> {$row['Lab_ID']} </td>";
-						echo	"<td> {$row['Supplier_ID']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Name']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Description']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Status']} </td>";
+						echo    "<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Category']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Price']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Lab_ID']} </td>";
+						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Supplier_ID']} </td>";
 
 					echo "</tr>";
 				}
