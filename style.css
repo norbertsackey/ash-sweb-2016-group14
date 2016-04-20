@@ -317,6 +317,12 @@ html, body {
 	background-color: red;
 	height: 80%;
 	vertical-align: middle;
+	text-align: center;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 #bottomdiv {
