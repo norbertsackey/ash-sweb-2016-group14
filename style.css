@@ -309,12 +309,12 @@ html, body {
 }
 
 #topdiv {
-	background-color: blue;
+	/*background-color: blue;*/
 	height: 10%;
 }
 
 #middlediv {
-	background-color: red;
+	/*background-color: red;*/
 	height: 80%;
 	display:flex;
 	flex-direction:row;
@@ -329,6 +329,6 @@ html, body {
 }
 
 #bottomdiv {
-	background-color: green;
+	/*background-color: green;*/
 	height: 10% ;
 }

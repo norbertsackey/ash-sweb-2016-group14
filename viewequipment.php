@@ -151,6 +151,7 @@
 						echo	"<td> {$row['Equip_Manufacturer']} </td>";
 						echo	"<td> {$row['Lab_ID']} </td>";
 						echo	"<td> {$row['Supplier_ID']} </td>";
+						echo 	"<td> <a href='editequipment.php?Equip_ID={$row['Equip_ID']}&Equip_Name={$row['Equip_ID']}&Equip_Name={$row['Equip_Name']}&Equip_Description={$row['Equip_Description']}&Equip_Status={$row['Equip_Status']}&Equip_Category={$row['Equip_Category']}&Equip_Price={$row['Equip_Price']}&Equip_Manufacturer={$row['Equip_Manufacturer']}&Lab_ID={$row['Lab_ID']}&Supplier_ID={$row['Supplier_ID']}' </a> edit </td>";
 
 					echo "</tr>";
 				}
