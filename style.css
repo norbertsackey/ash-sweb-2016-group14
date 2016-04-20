@@ -316,16 +316,19 @@ html, body {
 #middlediv {
 	background-color: red;
 	height: 80%;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
 	/*vertical-align: middle;
 	text-align: center;*/
-	right: 0;
+	/*right: 0;
 	left: 0;
 	top: 0;
 	bottom: 0;
-	margin: auto;
+	margin: auto;*/
 }
 
 #bottomdiv {
-	background-color: blue;
+	background-color: green;
 	height: 10% ;
 }
