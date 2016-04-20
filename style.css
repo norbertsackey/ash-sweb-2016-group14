@@ -316,6 +316,7 @@ html, body {
 #middlediv {
 	background-color: red;
 	height: 80%;
+	vertical-align: middle;
 }
 
 #bottomdiv {
