@@ -310,12 +310,15 @@ html, body {
 
 #topdiv {
 	background-color: blue;
+	height: 10%;
 }
 
 #middlediv {
 	background-color: red;
+	height: 80%;
 }
 
 #bottomdiv {
 	background-color: blue;
+	height: 10% ;
 }
