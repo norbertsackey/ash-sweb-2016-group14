@@ -98,62 +98,68 @@
 
 	<!-- C O N T E N T -->
 	<div class="content">
+		<div id ="topdiv">
+		</div>
 
+		<div id="middlediv">
+			<?php
 
-<?php
+				/* Creates an object of the equipment class */
+				include_once("equipment.php");
+				$obj = new equipment();
+				$filter = false;
 
-	/* Creates an object of the equipment class */
-	include_once("equipment.php");
-	$obj = new equipment();
-	$filter = false;
+				/* Search Equipments by text */
+				if (isset($_REQUEST['txtSearch'])) {
+					$filter = $_REQUEST['txtSearch'];
+					$row = $obj->searchTool($filter);
+				}
 
-	/* Search Equipments by text */
-	if (isset($_REQUEST['txtSearch'])) {
-		$filter = $_REQUEST['txtSearch'];
-		$row = $obj->searchTool($filter);
-	}
+				/* Display all tools */
+				else {
+					$row = $obj->searchTool($filter);
+				}
 
-	/* Display all tools */
-	else {
-		$row = $obj->searchTool($filter);
-	}
+				if (!$row) {
+					echo "Error searching tools";
+				}
+				
+				/* Display */
+					echo "<table border='1'>";
 
-	if (!$row) {
-		echo "Error searching tools";
-	}
-	
-	/* Display */
-		echo "<table border='1'>";
+						echo "<tr bgcolor='lightgrey'>";
+							echo "<td> EQUIP_ID </td>";
+							echo "<td> EQUIP_NAME </td>";
+							echo "<td> EQUIP_DESCRIPTION </td>";
+							echo "<td> EQUIP_STATUS </td>";
+							echo "<td> EQUIP_CATEGORY </td>";
+							echo "<td> EQUIP_PRICE </td>";
+							echo "<td> EQUIP_MANUFACTURER </td>";
+							echo "<td> LAB_ID </td>";
+							echo "<td> SUPPLIER_ID </td>";
+						echo "</tr>";
 
-			echo "<tr bgcolor='lightgrey'>";
-				echo "<td> EQUIP_ID </td>";
-				echo "<td> EQUIP_NAME </td>";
-				echo "<td> EQUIP_DESCRIPTION </td>";
-				echo "<td> EQUIP_STATUS </td>";
-				echo "<td> EQUIP_CATEGORY </td>";
-				echo "<td> EQUIP_PRICE </td>";
-				echo "<td> EQUIP_MANUFACTURER </td>";
-				echo "<td> LAB_ID </td>";
-				echo "<td> SUPPLIER_ID </td>";
-			echo "</tr>";
+					while ($row = $obj->fetch()) {
 
-		while ($row = $obj->fetch()) {
+					echo "<tr>";
+						echo 	"<td> {$row['Equip_ID']} </td>";
+						echo	"<td> {$row['Equip_Name']} </td>";
+						echo	"<td> {$row['Equip_Description']} </td>";
+						echo	"<td> {$row['Equip_Status']} </td>";
+						echo    "<td> {$row['Equip_Category']} </td>";
+						echo	"<td> {$row['Equip_Price']} </td>";
+						echo	"<td> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td> {$row['Lab_ID']} </td>";
+						echo	"<td> {$row['Supplier_ID']} </td>";
 
-		echo "<tr>";
-			echo 	"<td> {$row['Equip_ID']} </td>";
-			echo	"<td> {$row['Equip_Name']} </td>";
-			echo	"<td> {$row['Equip_Description']} </td>";
-			echo	"<td> {$row['Equip_Status']} </td>";
-			echo    "<td> {$row['Equip_Category']} </td>";
-			echo	"<td> {$row['Equip_Price']} </td>";
-			echo	"<td> {$row['Equip_Manufacturer']} </td>";
-			echo	"<td> {$row['Lab_ID']} </td>";
-			echo	"<td> {$row['Supplier_ID']} </td>";
+					echo "</tr>";
+				}
+					echo "</table>";
+			?>
+		</div>	
 
-		echo "</tr>";
-	}
-		echo "</table>";
-?>	
+		<div id="bottomdiv">
+		</div>
 
 	</div>
 
