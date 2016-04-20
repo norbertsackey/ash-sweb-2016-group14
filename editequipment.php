@@ -26,9 +26,9 @@
 				<a class="menu-item" href="#"> EQUIPMENT </a>
 				
 						<div class="dropdown-content">
-							<a href="viewequipment.html"> View Equipment </a>
+							<a href="viewequipment.php"> View Equipment </a>
 							<a href="addequipment.html"> Add Equipment </a>
-							<a href="editequipment.html"> Edit Equipment </a>
+							<a href="editequipment.php"> Edit Equipment </a>
 							<a href="removeequipment.html"> Remove Equipment </a>
 						</div>
 				</div>
