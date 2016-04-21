@@ -332,3 +332,7 @@ html, body {
 	/*background-color: green;*/
 	height: 10% ;
 }
+
+#txtName {
+	background-color: blue;
+}

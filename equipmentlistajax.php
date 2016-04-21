@@ -131,9 +131,9 @@
 					currentObject=null;
 				}
 
-				function saveCell(usercode){
-					var newName=document.getElementById('txtName').value;
-					var ajaxPageUrl = "usersajax.php?cmd=5&txtName="+newName+"&uc="+usercode;
+				function saveCell(equipmentid){
+					var newText=document.getElementById('txtName').value;
+					var ajaxPageUrl = "usersajax.php?cmd=2&txtName="+newText+"&uc="+equipmentid;
 					$.ajax(ajaxPageUrl,
 							{
 								async: true,
@@ -146,9 +146,9 @@
 
 
 
-				function editCell(obj,id){
+				function editCell(obj,equipmentid){
 					var currentName=obj.innerHTML;
-					obj.innerHTML="<input id='txtName' type='text' > <span class='clickspot' onclick='saveName("+id+")' >save</span>";
+					obj.innerHTML="<input id='txtName' type='text' > <span class='clickspot' onclick='saveName("+equipmentid+")' >save</span>";
 					$("#txtName").val(currentName);	
 			}
 
