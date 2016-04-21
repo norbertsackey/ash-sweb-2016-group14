@@ -112,17 +112,17 @@
 				*/
 				function saveCellComplete(xhr,status){
 					if(status!="success"){
-						divStatus.innerHTML="error sending request";
+						currentObject.innerHTML="error sending request";
 						return;
 					}
 					
 					var obj=$.parseJSON(xhr.responseText);
 					if(obj.result==0){
-						divStatus.innerHTML=obj.message;	
+						currentObject.innerHTML=obj.message;	
 					}
 					else{
 						
-						divStatus.innerHTML="status changed";
+						currentObject.innerHTML="status changed";
 
 						// print table row with new name
 							
@@ -130,13 +130,12 @@
 					
 					currentObject=null;
 
-					currentObject.
 				}
 
 				function saveCell(equipmentid,columnid){
-					alert(equipmentid);
-					var newText=document.getElementById('txtName').value;
-					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&uc="+equipmentid+"&columnid="+columnid;
+					var newText=$("#txtName").val();	
+					currentObject.innerHTML = newText;
+					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&Equip_ID="+equipmentid+"&columnid="+columnid;
 					$.ajax(ajaxPageUrl,
 							{
 								async: true,
@@ -147,12 +146,14 @@
 
 				currentObject = null;
 
+				// currentObject.innerHTML = 
 
 
-				function editCell(obj,columnid,equipmentid){
-					console.log(columnid);
+
+				function editCell(obj,id){
+					// console.log(columnid);
 					var currentText=obj.innerHTML;
-					obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+equipmentid+","+columnid+")'> save </button>"
+					obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+id+")'> save </button>"
 					$("#txtName").val(currentText);	
 					currentObject=obj;
 			}
@@ -166,16 +167,16 @@
 				$obj = new equipment();
 				$filter = false;
 
-				/* Search Equipments by text */
-				if (isset($_REQUEST['txtSearch'])) {
-					$filter = $_REQUEST['txtSearch'];
-					$row = $obj->searchTool($filter);
-				}
+				// /* Search Equipments by text */
+				// if (isset($_REQUEST['txtSearch'])) {
+				// 	$filter = $_REQUEST['txtSearch'];
+				// 	$row = $obj->searchTool($filter);
+				// }
 
 				/* Display all tools */
-				else {
+				// else {
 					$row = $obj->searchTool($filter);
-				}
+				// }
 
 				if (!$row) {
 					echo "Error searching tools";
@@ -200,14 +201,14 @@
 
 					echo "<tr>";
 						echo 	"<td> {$row['Equip_ID']} </td>";
-						echo	"<td id=\"Equip_Name\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Name']} </td>";
-						echo	"<td id=\"Equip_Description\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Description']} </td>";
-						echo	"<td id=\"Equip_Status\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Status']} </td>";
-						echo    "<td id=\"Equip_Category\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Category']} </td>";
-						echo	"<td id=\"Equip_Price\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Price']} </td>";
-						echo	"<td id=\"Equip_Manufacturer\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Manufacturer']} </td>";
-						echo	"<td id=\"Lab_ID\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Lab_ID']} </td>";
-						echo	"<td id=\"Supplier_ID\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Supplier_ID']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Name']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Description']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Status']} </td>";
+						echo    "<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Category']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Price']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Lab_ID']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Supplier_ID']} </td>";
 
 					echo "</tr>";
 				}

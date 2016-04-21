@@ -44,7 +44,7 @@
 	function saveCell() {
 		include_once("equipment.php");
 
-		// Check if there is a equipment id from the request array
+		// Check if there is an equipment id from the request array
 		if(!isset($_REQUEST["Equip_ID"])) {
 			echo '{"result":0,"message":"Equipment ID not provided"}';
 			return;
@@ -56,8 +56,9 @@
 
 		// Create an object of equipment class in order to call the saveCell function
 		$obj = new equipment();
-		// Call the method editCell()
-		$row = $obj->saveCell($columnID,$equipID);
+
+		// Call the method saveCell()
+		$row = $obj->editTool($columnID,$equipID);
 		if ($row == false) {
 			echo '{"result":0,"message":"Text not provided}';
 			return;
