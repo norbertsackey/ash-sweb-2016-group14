@@ -334,5 +334,9 @@ html, body {
 }
 
 #txtName {
-	background-color: blue;
+	width: 80%;
+}
+
+.clickspot {
+	
 }
