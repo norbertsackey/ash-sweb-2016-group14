@@ -78,26 +78,43 @@ class equipment extends adb {
 	*@param string supplierid the supplier's id
 	*@return boolean returns true if successful or false 
 	*/
-	function editTool ($equipid, $equipname, $equipdescription, $equipstatus, $equipcategory, $equipprice, $equipmanufacturer, $labid, $supplierid) {
-		$sql = "UPDATE equipment SET 
-								Equip_Name = '$equipname',
-								Equip_Description = '$equipdescription',
-								Equip_Status = '$equipstatus',
-								Equip_Category = '$equipname',
-								Equip_Price = '$equipprice',
-								Equip_Manufacturer ='$equipmanufacturer',
-								Lab_id = '$labid'
-								Supplier_id = '$supplierid'
-							WHERE Equip_ID = '$equipid'";
+	function edit($equipid,$updateFeild,$updateValue){
+		$sql= "UPDATE equipment SET '$updateFeild'='$updateValue'";
+	}
+
+	function editName ($equipid, $equipName) {
+		$sql = "UPDATE equipment SET Equip_Name = '$equipName' WHERE EQUIP_ID = '$equipid'";
 
 		if ($this->query($sql)) {
 			return;
 		}
 
 		else {
-			echo "Unable to update records";
+			echo "Unable to update record";
 		}
 	}
+
+
+	// function editTool ($equipid, $equipname, $equipdescription, $equipstatus, $equipcategory, $equipprice, $equipmanufacturer, $labid, $supplierid) {
+	// 	$sql = "UPDATE equipment SET 
+	// 							Equip_Name = '$equipname',
+	// 							Equip_Description = '$equipdescription',
+	// 							Equip_Status = '$equipstatus',
+	// 							Equip_Category = '$equipname',
+	// 							Equip_Price = '$equipprice',
+	// 							Equip_Manufacturer ='$equipmanufacturer',
+	// 							Lab_id = '$labid'
+	// 							Supplier_id = '$supplierid'
+	// 						WHERE Equip_ID = '$equipid'";
+
+	// 	if ($this->query($sql)) {
+	// 		return;
+	// 	}
+
+	// 	else {
+	// 		echo "Unable to update records";
+	// 	}
+	// }
 
 	/*
 	*delete equipment by equipmentid

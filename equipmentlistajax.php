@@ -131,9 +131,10 @@
 					currentObject=null;
 				}
 
-				function saveCell(equipmentid){
+				function saveCell(equipmentid, columnid){
+					alert(equipmentid);
 					var newText=document.getElementById('txtName').value;
-					var ajaxPageUrl = "usersajax.php?cmd=2&txtName="+newText+"&uc="+equipmentid;
+					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&uc="+equipmentid+"&columnid="+columnid;
 					$.ajax(ajaxPageUrl,
 							{
 								async: true,
@@ -146,10 +147,11 @@
 
 
 
-				function editCell(obj,equipmentid){
-					var currentName=obj.innerHTML;
-					obj.innerHTML="<input id='txtName' type='text' > <span class='clickspot' onclick='saveName("+equipmentid+")' >save</span>";
-					$("#txtName").val(currentName);	
+				function editCell(obj,columnid,equipmentid){
+					console.log(columnid);
+					var currentText=obj.innerHTML;
+					obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+equipmentid+","+columnid+")'> save </button>"
+					$("#txtName").val(currentText);	
 			}
 
 			</script>
@@ -195,14 +197,14 @@
 
 					echo "<tr>";
 						echo 	"<td> {$row['Equip_ID']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Name']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Description']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Status']} </td>";
-						echo    "<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Category']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Price']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Equip_Manufacturer']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Lab_ID']} </td>";
-						echo	"<td ondblclick=\"editCell(this,{$row['Equip_ID']})\"> {$row['Supplier_ID']} </td>";
+						echo	"<td id=\"Equip_Name\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Name']} </td>";
+						echo	"<td id=\"Equip_Description\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Description']} </td>";
+						echo	"<td id=\"Equip_Status\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Status']} </td>";
+						echo    "<td id=\"Equip_Category\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Category']} </td>";
+						echo	"<td id=\"Equip_Price\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Price']} </td>";
+						echo	"<td id=\"Equip_Manufacturer\" ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td id=\"Lab_ID\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Lab_ID']} </td>";
+						echo	"<td id=\"Supplier_ID\"ondblclick=\"editCell(this,this.id,{$row['Equip_ID']})\"> {$row['Supplier_ID']} </td>";
 
 					echo "</tr>";
 				}
