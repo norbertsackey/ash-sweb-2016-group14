@@ -137,7 +137,7 @@
 					$.ajax(ajaxPageUrl,
 							{
 								async: true,
-								complete: saveNameComplete,
+								complete: saveCellComplete,
 							}
 						);
 				}

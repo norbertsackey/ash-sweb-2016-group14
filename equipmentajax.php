@@ -33,7 +33,7 @@
 			return;
 		}
 		
-		echo '{"result":1,"user":';
+		echo '{"result":1,"equipment":';
 			echo json_encode($obj->fetch());
 		echo '}';
 	}
