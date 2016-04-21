@@ -129,9 +129,11 @@
 					}
 					
 					currentObject=null;
+
+					currentObject.
 				}
 
-				function saveCell(equipmentid, columnid){
+				function saveCell(equipmentid,columnid){
 					alert(equipmentid);
 					var newText=document.getElementById('txtName').value;
 					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&uc="+equipmentid+"&columnid="+columnid;
@@ -152,6 +154,7 @@
 					var currentText=obj.innerHTML;
 					obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+equipmentid+","+columnid+")'> save </button>"
 					$("#txtName").val(currentText);	
+					currentObject=obj;
 			}
 
 			</script>
