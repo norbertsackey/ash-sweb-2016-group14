@@ -165,16 +165,16 @@
 				$obj = new equipment();
 				$filter = false;
 
-				// /* Search Equipments by text */
-				// if (isset($_REQUEST['txtSearch'])) {
-				// 	$filter = $_REQUEST['txtSearch'];
-				// 	$row = $obj->searchTool($filter);
-				// }
+				/* Search Equipments by text */
+				if (isset($_REQUEST['txtSearch'])) {
+					$filter = $_REQUEST['txtSearch'];
+					$row = $obj->searchTool($filter);
+				}
 
 				/* Display all tools */
-				// else {
+				else {
 					$row = $obj->searchTool($filter);
-				// }
+				}
 
 				if (!$row) {
 					echo "Error searching tools";
