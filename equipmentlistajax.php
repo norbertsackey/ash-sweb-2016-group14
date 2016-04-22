@@ -5,7 +5,7 @@
 		<title> Home </title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+		<script type="text/javascript" src="js/jquery-1.12.1.js"> </script>
 
 	</head>
 
@@ -121,21 +121,21 @@
 						currentObject.innerHTML=obj.message;	
 					}
 					else{
-						
 						currentObject.innerHTML="status changed";
 
-						// print table row with new name
-							
+						// print table row with new name	
 					}
 					
 					currentObject=null;
 
 				}
 
-				function saveCell(equipmentid,columnid){
-					var newText=$("#txtName").val();	
+				function saveCell(id){
+					var newText=$("#txtName").val();
+					alert(newText);	
 					currentObject.innerHTML = newText;
-					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&Equip_ID="+equipmentid+"&columnid="+columnid;
+					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&equipID="+id;
+					alert(ajaxPageUrl);
 					$.ajax(ajaxPageUrl,
 							{
 								async: true,
@@ -147,8 +147,6 @@
 				currentObject = null;
 
 				// currentObject.innerHTML = 
-
-
 
 				function editCell(obj,id){
 					// console.log(columnid);
