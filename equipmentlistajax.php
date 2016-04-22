@@ -146,6 +146,22 @@
 
 				currentObject = null;
 
+				function saveCell(id){
+					var newText=$("#txtName").val();
+					alert(newText);	
+					currentObject.innerHTML = newText;
+					var ajaxPageUrl = "equipmentajax.php?cmd=2&txtName="+newText+"&equipID="+id;
+					alert(ajaxPageUrl);
+					$.ajax(ajaxPageUrl,
+							{
+								async: true,
+								complete: saveCellComplete,
+							}
+						);
+				}
+
+				currentObject = null;
+
 				// currentObject.innerHTML = 
 
 				function editCell(obj,id){

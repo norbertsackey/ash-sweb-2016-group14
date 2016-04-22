@@ -10,6 +10,21 @@
 		case 1:
 			saveName();		//if cmd=1 the call edit
 			break;
+		case 2:
+			saveDescription();
+			break;
+		case 3: 
+			saveStatus();
+			break;
+		case 4:
+			saveCategory();
+			break;
+		case 5:
+			savePrice();
+			break;
+		case 6:
+			saveManufacturer();
+			break;
 		default:
 			echo "wrong cmd";	//change to json message
 			break;
