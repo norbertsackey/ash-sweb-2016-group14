@@ -108,8 +108,41 @@
 			<script type="text/javascript">
 
 				/**
-				* callback function for  method	
+				* Function to show tooltip
 				*/
+				var showTooltip = function(event) {
+				   $('div.tooltip').remove();
+				   $('<div class="tooltip">Double click to Edit Equipment information</div>')
+				     .appendTo('tr');
+				   changeTooltipPosition(event);
+				};
+
+				/**
+				* Function to change tooltip position
+				*/
+				var changeTooltipPosition = function(event) {
+					var tooltipX = event.pageX - 8;
+					var tooltipY = event.pageY + 8;
+					$('div.tooltip').css({top: tooltipY, left: tooltipX});
+				};
+
+				/**
+				* Function to hide the mouse events
+				*/
+				var hideTooltip = function() {
+					$('div.tooltip').remove();
+				};
+
+				/**
+				* Function to bind the mouse events to the target
+				*/
+				$("span#hint,label#username'").bind({
+					mousemove : changeTooltipPosition,
+					mouseenter : showTooltip,
+					mouseleave: hideTooltip
+				});
+
+
 				function saveCellComplete(xhr,status){
 					if(status!="success"){
 						currentObject.innerHTML="error sending request";
