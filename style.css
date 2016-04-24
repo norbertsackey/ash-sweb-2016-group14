@@ -341,5 +341,8 @@ html, body {
 	border-radius: 18px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	cursor:pointer;
-	background: rgb(28, 184, 65);
+	/*background: rgb(28, 184, 65);*/
+	background-color: #3F9BFC;
+	color: white;
+
 }

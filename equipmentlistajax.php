@@ -120,21 +120,16 @@
 					if(obj.result==0){
 						currentObject.innerHTML=obj.message;	
 					}
-					else{
-						currentObject.innerHTML="status changed";
-
-						// print table row with new name	
-					}
 					
-					currentObject=null;
+					currentObject.innerHTML = obj.message;
+
 
 				}
 
-				function saveCell(id){
+				function saveCell(id, col){
 					var newText=$("#txtName").val();
 					alert(newText);	
-					currentObject.innerHTML = newText;
-					var ajaxPageUrl = "equipmentajax.php?cmd=1&txtName="+newText+"&equipID="+id;
+					var ajaxPageUrl = "equipmentajax.php?cmd="+col+"&txtName="+newText+"&equipID="+id;
 					alert(ajaxPageUrl);
 					$.ajax(ajaxPageUrl,
 							{
@@ -146,30 +141,19 @@
 
 				currentObject = null;
 
-				function saveCell(id){
-					var newText=$("#txtName").val();
-					alert(newText);	
-					currentObject.innerHTML = newText;
-					var ajaxPageUrl = "equipmentajax.php?cmd=2&txtName="+newText+"&equipID="+id;
-					alert(ajaxPageUrl);
-					$.ajax(ajaxPageUrl,
-							{
-								async: true,
-								complete: saveCellComplete,
-							}
-						);
-				}
-
-				currentObject = null;
-
-				// currentObject.innerHTML = 
-
-				function editCell(obj,id){
-					// console.log(columnid);
+	
+				function editCell(obj,id,col){
+					
 					var currentText=obj.innerHTML;
-					obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+id+")'> save </button>"
+
+					if (col == 3) {
+						obj.innerHTML="<select id=\"txtName\"> <option value=\"CheckedIn\"> CheckedIn </option> <option value=\"CheckedOut\"> CheckedOut </option><option value=\"Reserved\"> Reserved </option> <option value=\"Available\">Available</option><option value=\"Lost\"> Lost</option><option value=\"UnderRepairs\"> UnderRepairs </option> </select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";
+						currentObject=obj;
+					}else{
+						obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>"
 					$("#txtName").val(currentText);	
 					currentObject=obj;
+					}
 			}
 
 			</script>
@@ -215,14 +199,14 @@
 
 					echo "<tr>";
 						echo 	"<td> {$row['Equip_ID']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Name']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Description']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Status']} </td>";
-						echo    "<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Category']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Price']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Equip_Manufacturer']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Lab_ID']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']})> {$row['Supplier_ID']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},1)> {$row['Equip_Name']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},2)> {$row['Equip_Description']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},3)> {$row['Equip_Status']} </td>";
+						echo    "<td ondblclick= editCell(this,{$row['Equip_ID']},4)> {$row['Equip_Category']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},5)> {$row['Equip_Price']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},6)> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},7)> {$row['Lab_ID']} </td>";
+						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},8)> {$row['Supplier_ID']} </td>";
 
 					echo "</tr>";
 				}

@@ -101,6 +101,7 @@
 
 		// Call the method saveDescription()
 		$row = $obj->editDescription($equipID,$txtName);
+		
 		// echo "Row is $row";
 		if ($row == false) {
 			echo '{"result":0,"message":"Text not provided}';
@@ -108,8 +109,8 @@
 		}
 
 		echo '{"result":1, "Text":"done"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 	}
 
 	function saveStatus() {
@@ -129,43 +130,16 @@
 
 		// Call the method saveDescription()
 		$row = $obj->editStatus($equipID,$txtName);
-		// echo "Row is $row";
+		//echo $row;
+		
 		if ($row == false) {
-			echo '{"result":0,"message":"Text not provided}';
+			echo '{"result":0,"message":"Text not provided"}';
 			return;
 		}
 
-		echo '{"result":1, "Text":"done"}';
-			echo json_encode($obj->fetch());
-			echo '}';
-	}
-
-	function saveCategory() {
-		include_once("equipment.php");
-
-		// Check if there is an equipment id from the request array
-		if(!isset($_REQUEST["equipID"])) {
-			echo '{"result":0,"message":"Equipment ID not provided"}';
-			return;
-		}
-
-		$equipID = $_REQUEST["equipID"];
-		$txtName = $_REQUEST["txtName"];
-
-		// Create an object of equipment class in order to call the saveCell function
-		$obj = new equipment();
-
-		// Call the method saveStatus()
-		$row = $obj->editStatus($equipID,$txtName);
-		// echo "Row is $row";
-		if ($row == false) {
-			echo '{"result":0,"message":"Text not provided}';
-			return;
-		}
-
-		echo '{"result":1, "Text":"done"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+		echo '{"result":1, "message": "'.$txtName.'"}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 	}
 
 	function saveCategory() {

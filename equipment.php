@@ -129,10 +129,10 @@ class equipment extends adb {
 	}
 
 	function editDescription($equipID, $txtName) {
-		$sql = "UPDATE equipment SET Equip_Description = '$equipDescription' WHERE Equip_ID = '$equipID'";
+		$sql = "UPDATE equipment SET Equip_Description = '$txtName' WHERE Equip_ID = '$equipID'";
 
 		if ($this->query($sql)) {
-			return;
+			return true;
 		}
 
 		else {
@@ -141,10 +141,12 @@ class equipment extends adb {
 	}
 
 	function editStatus($equipID, $txtName) {
-		$sql = "UPDATE equipment SET Equip_Status = '$equipStatus' WHERE Equip_ID = '$equipID'";
+		$sql = "UPDATE equipment SET Equip_Status = '$txtName' WHERE Equip_ID = '$equipID'";
 
-		if ($this->query($sql)) {
-			return;
+		$result = $this->query($sql);
+
+		if ($result) {
+			return $result;
 		}
 
 		else {
@@ -153,7 +155,7 @@ class equipment extends adb {
 	}
 
 	function editCategory($equipID, $txtName) {
-		$sql = "UPDATE equipment SET Equip_Category = '$equipCategory' WHERE Equip_ID = '$equipID'";
+		$sql = "UPDATE equipment SET Equip_Category = '$txtName' WHERE Equip_ID = '$equipID'";
 
 		if ($this->query($sql)) {
 			return;
@@ -165,7 +167,7 @@ class equipment extends adb {
 	}
 
 	function editPrice($equipID, $txtName) {
-		$sql = "UPDATE equipment SET Equip_Price = '$equipPrice' WHERE Equip_ID = '$equipID'";
+		$sql = "UPDATE equipment SET Equip_Price = '$txtName' WHERE Equip_ID = '$equipID'";
 
 		if ($this->query($sql)) {
 			return;
@@ -177,7 +179,7 @@ class equipment extends adb {
 	}
 
 	function editManufacturer($equipID, $txtName) {
-		$sql = "UPDATE equipment SET Equip_Manufacturer = '$equipManufacturer' WHERE Equip_ID = '$equipID'";
+		$sql = "UPDATE equipment SET Equip_Manufacturer = '$txtName' WHERE Equip_ID = '$equipID'";
 
 		if ($this->query($sql)) {
 			return;
