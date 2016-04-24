@@ -346,3 +346,12 @@ html, body {
 	color: white;
 
 }
+
+.tooltip{
+	margin:8px;
+	padding:8px;
+	border:1px solid blue;
+	background-color:yellow;
+	position: absolute;
+	z-index: 2;
+}
