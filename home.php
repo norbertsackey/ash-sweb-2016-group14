@@ -1,3 +1,16 @@
+<?php
+	/**
+	* Start Session after a successful login
+	*/ 
+	session_start();
+	if(!isset($_REQUEST['User_Name'])) {
+		header("location: login.php");
+		exit();
+	}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <html lang="en">
