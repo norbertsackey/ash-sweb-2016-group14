@@ -1,45 +1,105 @@
 <?php
 
 // Establish Connection
-if (isset($_REQUEST['Login'])) {
-	$db = new mysqli("localhost","root","","lab_inventory2016");
+if (isset($_REQUEST['username'])) {
+	include_once('adb.php');
 
-	if($db->connect_errno) {
-		echo "Error authenticating connection {$db->connect_errno}";
-		exit();
+	class users extends adb{
+
+
+		function users(){
+
+		}
+
+		function getUserLogin($username) {
+
+			$sql = "SELECT User_Id, User_Name, User_Pword, Firstname, Lastname FROM users WHERE User_Name = '$username'";
+
+			$row = false;
+
+			if ($this->query($sql)) {
+				$row = $this->fetch();
+			}
+
+			return $row;
+		}
 	}
+	
 
 	// Initialize variables
 	$username = $_REQUEST['username'];
 	$password = $_REQUEST['password'];
 
-	// Query
-	$sql = "SELECT User_Id FROM users WHERE User_Name = '$username' and User_Pword = $password";
+	$userClass = new users();
 
-	$result = $db->query($sql);
+	echo "the username is ".$username." and the password is ".$password."\n";
 
-	echo $sql;
-	//echo $result;
-	echo ' is the result of the query';
+	$result = $userClass->getUserLogin($username);
 
-	if ($result==false) {
-		echo "Authentication Error";
+	if ($result == false){
+		echo "User does not exist";
 		exit();
+	} else {
+		if ($result['User_Pword'] == $password){
+			session_start();
+
+			echo "about to set the id ".$result['User_Id'];
+
+			$_SESSION['User_Id'] = $result['User_Id'];
+			$_SESSION['fname'] = $result['Firstname'];
+			$_SESSION['lname'] = $result['Lastname'];
+			$_SESSION['username'] = $result['User_Name'];
+			header("location: home.php");
+		} else {
+			echo "Incorrect Password";
+			exit();
+		}
 	}
 
-	$row = $result->fetch_assoc();
 
-	if (!$row) {
-		echo "Username or password is wrong";
-		exit();
-	}
-
-	else {
-		session_start();
-		$_SESSION['User_Id'] = $row['User_Id'];
-		header("location: home.php");
-	}
 }
+	// $db = new mysqli("localhost","root","","lab_inventory2016");
+
+	// if($db->connect_errno) {
+	// 	echo "Error authenticating connection {$db->connect_errno}";
+	// 	exit();
+	// }
+
+	// // Initialize variables
+	// $username = $_REQUEST['username'];
+	// $password = $_REQUEST['password'];
+
+	// echo "the username is ".$username." and the password is ".$password."\n";
+
+	// // Query
+	// $sql = "SELECT User_Id, User_Name, User_Pword, Firstname, Lastname FROM users WHERE User_Name = '$username'";
+
+	// $result = $db->query($sql);
+
+	// echo $sql;
+	// //echo $result;
+	// // echo ' is the result of the query';
+
+	// if ($result) {
+	// 	$row = $db->fetch_assoc();
+
+	// 	if ($row['User_Pword'] == $password) {
+	// 		session_start();
+	// 		$_SESSION['User_Id'] = $row['User_Id'];
+	// 		header("location: home.php");
+	// 	}
+
+	// 	else {
+	// 		echo "Incorrect Password";
+	// 		exit();
+	// 	}
+	// } else{
+	// 	echo "User does not exist";
+	// 	exit();
+	// }
+
+	
+// }
 
 ?>
 
@@ -92,7 +152,7 @@ if (isset($_REQUEST['Login'])) {
 
 					<!-- username-password -->
 					<div class="username-password">
-						<form id="form">
+						<form id="form" method="POST">
 							  <input id="username" type="text" placeholder="Username" name="username">
 							  <br><br>
 							  <input id="password" type="password" placeholder="Password" name="password">

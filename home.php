@@ -3,9 +3,12 @@
 	* Start Session after a successful login
 	*/ 
 	session_start();
-	if(!isset($_REQUEST['User_Id'])) {
+	if(isset($_SESSION['User_Id'])) {
+		// echo "user id is set";
+	} else {
+		echo "user id is not set";
 		header("location: login.php");
-		exit();
+		die();
 	}
 ?>
 
@@ -88,7 +91,7 @@
 		<!-- Username -->
 		<div class="username">
 			<div class="dropdown">
-				<span class="username-text"> Username </span>
+				<span class="username-text"> <?php echo $_SESSION['username']; ?> </span>
 					<div class="dropdown-content">
 							<a href="logout.php"> Logout </a>
 
@@ -110,9 +113,12 @@
 	</div>
 
 	<!-- C O N T E N T -->
-	<div class="content">
+	<div class="content" background="/images/lab2.jpeg">
 
-		<div class="welcome-user"> Welcome </div>
+		<div class="welcome-user">
+			<p class="welcome-username"> Welcome <?php echo $_SESSION['lname'].", ".$_SESSION['fname']?>  </p>
+			<p class="welcome-date"> <?php echo date('l').", ". date("m/d/y",time()) ?> </p>
+		</div>
 
 
 		</div>
@@ -123,7 +129,6 @@
 	<!-- F O O T E R -->
 	<div class="footer">
 		<p class="text"> Designed and created by Kwame Odame. All Rights Reserved </p>
-
 	</div>
 	
 </body>

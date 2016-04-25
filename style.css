@@ -368,5 +368,21 @@ html, body {
 }
 
 .welcome-user {
-	font-size: 40px;
+	/*background-color: blue;*/
+	height: 50%;
+	right: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	margin: auto;
+	vertical-align: middle;
+}
+
+.welcome-username {
+	font-size: 100px;
+}
+
+.welcome-date {
+	font-size: 80px;
 }
