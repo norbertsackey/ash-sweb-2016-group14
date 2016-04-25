@@ -22,15 +22,14 @@
 
 		<!-- Items in Menu bar -->
 		<div class="menu-wrapper">
-				<a class="menu-item" href="home.html"> HOME </a>
+				<a class="menu-item" href="home.php"> HOME </a>
 
 				<div class="dropdown">
 				<a class="menu-item" href="#"> EQUIPMENT </a>
 				
 						<div class="dropdown-content">
-							<a href="viewequipment.php"> View Equipment </a>
+							<a href="equipmentlistajax.php"> View Equipment </a>
 							<a href="addequipment.html"> Add Equipment </a>
-							<a href="editequipment.php"> Edit Equipment </a>
 							<a href="removeequipment.html"> Remove Equipment </a>
 						</div>
 				</div>
@@ -147,6 +146,11 @@
 			});
 
 
+				/**
+				*Function to process the request from the AjaxPageUrl
+				*@param xhr the url request
+				*@param status the status of the request
+				*/
 				function saveCellComplete(xhr,status){
 					if(status!="success"){
 						currentObject.innerHTML="error sending request";
@@ -163,6 +167,11 @@
 
 				}
 
+				/**
+				*Function to save the edited cell
+				*@param id the equipment id
+				*@param the column id
+				*/
 				function saveCell(id, col){
 					var newText=$("#txtName").val();
 					alert(newText);	
@@ -178,7 +187,12 @@
 
 				currentObject = null;
 
-	
+				/**
+				*Function to edit a single cell
+				*@param obj the current object
+				*@param id the equipment id
+				*@param col the column id
+				*/
 				function editCell(obj,id,col){
 					
 					var currentText=obj.innerHTML;

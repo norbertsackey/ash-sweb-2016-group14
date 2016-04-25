@@ -65,57 +65,12 @@ class equipment extends adb {
 							return $this->query($strQuery);
 	}
 
-	/**
-	*Edits existing equipment
-	*@param int equipid equipment id
-	*@param string equipname equipment name
-	*@param string equipdescription equipment description
-	*@param string equipstatus equipment status
-	*@param string equipcategory equipment category
-	*@param int equipprice equipment price
-	*@param string equipmanufacturer equipment manufacturer
-	*@param string labid the lab id
-	*@param string supplierid the supplier's id
+	/** 
+	*Edits the Name of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
 	*@return boolean returns true if successful or false 
 	*/
-	// function edit($equipid,$updateFeild,$updateValue){
-	// 	$sql= "UPDATE equipment SET '$updateFeild'='$updateValue'";
-	// }
-
-	// function editName ($equipid, $equipName) {
-	// 	$sql = "UPDATE equipment SET Equip_Name = '$equipName' WHERE EQUIP_ID = '$equipid'";
-
-	// 	if ($this->query($sql)) {
-	// 		return;
-	// 	}
-
-	// 	else {
-	// 		echo "Unable to update record";
-	// 	}
-	// }
-
-
-	// function editTool ($equipid, $equipname, $equipdescription, $equipstatus, $equipcategory, $equipprice, $equipmanufacturer, $labid, $supplierid) {
-	// 	$sql = "UPDATE equipment SET 
-	// 							Equip_Name = '$equipname',
-	// 							Equip_Description = '$equipdescription',
-	// 							Equip_Status = '$equipstatus',
-	// 							Equip_Category = '$equipname',
-	// 							Equip_Price = '$equipprice',
-	// 							Equip_Manufacturer ='$equipmanufacturer',
-	// 							Lab_id = '$labid'
-	// 							Supplier_id = '$supplierid'
-	// 						WHERE Equip_ID = '$equipid'";
-
-	// 	if ($this->query($sql)) {
-	// 		return;
-	// 	}
-
-	// 	else {
-	// 		echo "Unable to update records";
-	// 	}
-	// }
-
 	function editName($equipID,$txtName) {
 		$sql = "UPDATE equipment SET Equip_Name = '$txtName' WHERE Equip_ID = '$equipID'";
 		echo $sql;
@@ -128,6 +83,12 @@ class equipment extends adb {
 		}
 	}
 
+	/** 
+	*Edits the Description of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
+	*@return boolean returns true if successful or false 
+	*/
 	function editDescription($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Description = '$txtName' WHERE Equip_ID = '$equipID'";
 
@@ -140,6 +101,12 @@ class equipment extends adb {
 		}
 	}
 
+	/** 
+	*Edits the Status of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
+	*@return boolean returns true if successful or false 
+	*/
 	function editStatus($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Status = '$txtName' WHERE Equip_ID = '$equipID'";
 
@@ -154,6 +121,12 @@ class equipment extends adb {
 		}
 	}
 
+	/** 
+	*Edits the Category of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
+	*@return boolean returns true if successful or false 
+	*/
 	function editCategory($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Category = '$txtName' WHERE Equip_ID = '$equipID'";
 
@@ -166,6 +139,12 @@ class equipment extends adb {
 		}
 	}
 
+	/** 
+	*Edits the Price of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
+	*@return boolean returns true if successful or false 
+	*/
 	function editPrice($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Price = '$txtName' WHERE Equip_ID = '$equipID'";
 
@@ -178,6 +157,12 @@ class equipment extends adb {
 		}
 	}
 
+	/** 
+	*Edits the Manufacturer of the equipment
+	*@param int equipID, the equipment id
+	*@param txtName, the value of the new text
+	*@return boolean returns true if successful or false 
+	*/
 	function editManufacturer($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Manufacturer = '$txtName' WHERE Equip_ID = '$equipID'";
 
@@ -190,10 +175,10 @@ class equipment extends adb {
 		}
 	}
 
-	/*
+	/**
 	*delete equipment by equipmentid
 	*@param int equipmentid the equipment id to be deleted
-	*returns true if the equipment is deleted, else false
+	*@return returns true if the equipment is deleted, else false
 	*/
 	function deleteTool($equipid) {
 		$sql = "DELETE FROM equipment WHERE Equipid = '$equipid'";

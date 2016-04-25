@@ -1,10 +1,10 @@
 <?php
-	//check command
+	//Check command
 	if(!isset($_REQUEST['cmd'])){
 		echo "cmd is not provided";
 		exit();
 	}
-	/*get command*/
+	/* Get Command */
 	$cmd=$_REQUEST['cmd'];
 	switch($cmd){
 		case 1:
@@ -30,31 +30,8 @@
 			break;
 	}
 
-	// function viewEquipment(){
-	// 	include_once("equipment.php");
-	// 	//check if there is a equipment ID
-	// 	if(!isset($_REQUEST['Equip_ID'])){
-	// 		echo '{"result":0,"message":"Equipment ID not provided"}';		
-	// 		return;
-	// 	}
-		
-	// 	$usercode=$_REQUEST["Equip_ID"];
-	// 	//create an object of users
-	// 	$obj=new equipment();
-	// 	// call get user method
-	// 	$row=$obj->getTools();
-	// 	if($row==false){
-	// 		echo '{"result":0,"message":"Equipment ID not provided"}';	
-	// 		return;
-	// 	}
-		
-	// 	echo '{"result":1,"equipment":';
-	// 		echo json_encode($obj->fetch());
-	// 	echo '}';
-	// }
-
 	/**
-	*Save Cell function
+	*Save Name function
 	*/
 	function saveName() {
 		include_once("equipment.php");
@@ -84,6 +61,9 @@
 			echo '}';
 		}
 
+	/**
+	*Save Description function
+	*/
 	function saveDescription () {
 		include_once("equipment.php");
 
@@ -113,6 +93,9 @@
 			// echo '}';
 	}
 
+	/**
+	*Save Status function
+	*/
 	function saveStatus() {
 		include_once("equipment.php");
 
@@ -142,6 +125,9 @@
 			// echo '}';
 	}
 
+	/**
+	*Save Category function
+	*/
 	function saveCategory() {
 		include_once("equipment.php");
 
@@ -170,6 +156,9 @@
 			echo '}';
 	}
 
+	/**
+	*Save Price function
+	*/
 	function savePrice() {
 		include_once("equipment.php");
 
@@ -198,6 +187,9 @@
 			echo '}';
 	}
 
+	/**
+	*Save Manufacturer function
+	*/
 	function saveManufacturer() {
 		include_once("equipment.php");
 
