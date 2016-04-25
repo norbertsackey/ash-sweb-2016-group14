@@ -1,3 +1,45 @@
+<?php
+
+// Establish Connection
+if (isset($_REQUEST['User_Name'])) {
+	$db = new mysqli("localhost","root","","webtech");
+
+	if($db->connect_errno) {
+		echo "Error authenticating connection {$db->connect_errno}";
+		exit();
+	}
+
+	// Initialize variables
+	$userid = $_REQUEST['User_Id'];
+	$password = $_REQUEST['User_Pword'];
+
+	// Query
+	$sql = "SELECT User_Id FROM users WHERE User_Id = '$userid' and User_Pword = $password";
+
+	$result = $db->query($sql);
+
+	if (!$result) {
+		echo "Authentication Error";
+		exit();
+	}
+
+	$row = $result->fetch_assoc();
+
+	if (!$row) {
+		echo "Username or password is wrong";
+		exit();
+	}
+
+	else {
+		session_start();
+		$_SESSION['User_Id'] = $row['User_Id'];
+		header("location: home.php");
+	}
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <html lang="en">
@@ -53,11 +95,11 @@
 
 							  <br> <br>
 
-							<select name="usergroup">
+							<!-- <select name="usergroup">
 								<option value=""> Select Usergroup </option>
 								<option value="1"> Admin </option>
 								<option value="2"> Student </option>
-							</select>
+							</select> -->
 
 							<br> <br>
 
