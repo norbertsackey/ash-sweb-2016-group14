@@ -101,19 +101,22 @@
 	<!-- C O N T E N T -->
 	<div class="content">
 		<div id ="topdiv">
+			<p class='heading-style'> Lab Equipment Information </p>
 		</div>
 
 		<div id="middlediv">
 
 			<script type="text/javascript">
 
+			$(document).ready(function() {
+
 				/**
 				* Function to show tooltip
 				*/
 				var showTooltip = function(event) {
 				   $('div.tooltip').remove();
-				   $('<div class="tooltip">Double click to Edit Equipment information</div>')
-				     .appendTo('tr');
+				   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
+				     .appendTo('td');
 				   changeTooltipPosition(event);
 				};
 
@@ -136,11 +139,12 @@
 				/**
 				* Function to bind the mouse events to the target
 				*/
-				$("span#hint,label#username'").bind({
+				$("td#hint").bind({
 					mousemove : changeTooltipPosition,
 					mouseenter : showTooltip,
 					mouseleave: hideTooltip
 				});
+			});
 
 
 				function saveCellComplete(xhr,status){
@@ -182,7 +186,15 @@
 					if (col == 3) {
 						obj.innerHTML="<select id=\"txtName\"> <option value=\"CheckedIn\"> CheckedIn </option> <option value=\"CheckedOut\"> CheckedOut </option><option value=\"Reserved\"> Reserved </option> <option value=\"Available\">Available</option><option value=\"Lost\"> Lost</option><option value=\"UnderRepairs\"> UnderRepairs </option> </select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";
 						currentObject=obj;
-					}else{
+					}
+
+					else if (col == 4) {
+						obj.innerHTML="<select id=\"txtName\"> <option value=\"Electronics\"> Electronics </option> <option value=\"Scientific Instruments\"> Scientific Instruments </option> <option value=\"Computers\"> Computers </option></select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";
+						currentObject=obj;
+
+					}
+
+					else{
 						obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>"
 					$("#txtName").val(currentText);	
 					currentObject=obj;
@@ -216,7 +228,7 @@
 				/* Display */
 					echo "<table border='1'>";
 
-						echo "<tr bgcolor='lightgrey'>";
+						echo "<tr id='table-header'>";
 							echo "<td> EQUIP_ID </td>";
 							echo "<td> EQUIP_NAME </td>";
 							echo "<td> EQUIP_DESCRIPTION </td>";
@@ -232,14 +244,14 @@
 
 					echo "<tr>";
 						echo 	"<td> {$row['Equip_ID']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},1)> {$row['Equip_Name']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},2)> {$row['Equip_Description']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},3)> {$row['Equip_Status']} </td>";
-						echo    "<td ondblclick= editCell(this,{$row['Equip_ID']},4)> {$row['Equip_Category']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},5)> {$row['Equip_Price']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},6)> {$row['Equip_Manufacturer']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},7)> {$row['Lab_ID']} </td>";
-						echo	"<td ondblclick= editCell(this,{$row['Equip_ID']},8)> {$row['Supplier_ID']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},1)> {$row['Equip_Name']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},2)> {$row['Equip_Description']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},3)> {$row['Equip_Status']} </td>";
+						echo    "<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},4)> {$row['Equip_Category']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},5)> {$row['Equip_Price']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},6)> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td> {$row['Lab_ID']} </td>";
+						echo	"<td> {$row['Supplier_ID']} </td>";
 
 					echo "</tr>";
 				}

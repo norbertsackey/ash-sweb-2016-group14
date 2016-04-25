@@ -350,8 +350,19 @@ html, body {
 .tooltip{
 	margin:8px;
 	padding:8px;
-	border:1px solid blue;
-	background-color:yellow;
+	border:1px solid black;
+	background-color:white;
 	position: absolute;
 	z-index: 2;
+	color: #F44336;
+}
+
+#table-header {
+	background-color: #212121;
+	color: white;
+}
+
+.heading-style {
+	color: #212121;
+	font-size: 30px;
 }
