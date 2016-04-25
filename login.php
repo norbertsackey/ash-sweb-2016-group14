@@ -88,7 +88,7 @@ if (isset($_REQUEST['User_Name'])) {
 
 					<!-- username-password -->
 					<div class="username-password">
-						<form id="form" action="home.html">
+						<form id="form" action="login.php">
 							  <input id="username" type="text" placeholder="Username" name="username">
 							  <br><br>
 							  <input id="password" type="password" placeholder="Password" name="password">
