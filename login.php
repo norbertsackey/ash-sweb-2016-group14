@@ -1,7 +1,7 @@
 <?php
 
 // Establish Connection
-if (isset($_REQUEST['User_Name'])) {
+if (isset($_REQUEST['Login'])) {
 	$db = new mysqli("localhost","root","","webtech");
 
 	if($db->connect_errno) {
