@@ -3,7 +3,7 @@
 	* Start Session after a successful login
 	*/ 
 	session_start();
-	if(!isset($_REQUEST['User_Name'])) {
+	if(!isset($_REQUEST['User_Id'])) {
 		header("location: login.php");
 		exit();
 	}
@@ -90,7 +90,8 @@
 			<div class="dropdown">
 				<span class="username-text"> Username </span>
 					<div class="dropdown-content">
-							<a href="login.html"> Logout </a>
+							<a href="logout.php"> Logout </a>
+
 						</div>
 				<img class="usericon" src="images/usericon.png" alt="usericon">
 			</div>
@@ -110,6 +111,11 @@
 
 	<!-- C O N T E N T -->
 	<div class="content">
+
+		<div class="welcome-user"> Welcome </div>
+
+
+		</div>
 
 	</div>
 

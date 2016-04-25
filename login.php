@@ -2,7 +2,7 @@
 
 // Establish Connection
 if (isset($_REQUEST['Login'])) {
-	$db = new mysqli("localhost","root","","webtech");
+	$db = new mysqli("localhost","root","","lab_inventory2016");
 
 	if($db->connect_errno) {
 		echo "Error authenticating connection {$db->connect_errno}";
@@ -10,15 +10,19 @@ if (isset($_REQUEST['Login'])) {
 	}
 
 	// Initialize variables
-	$userid = $_REQUEST['User_Id'];
-	$password = $_REQUEST['User_Pword'];
+	$username = $_REQUEST['username'];
+	$password = $_REQUEST['password'];
 
 	// Query
-	$sql = "SELECT User_Id FROM users WHERE User_Id = '$userid' and User_Pword = $password";
+	$sql = "SELECT User_Id FROM users WHERE User_Name = '$username' and User_Pword = $password";
 
 	$result = $db->query($sql);
 
-	if (!$result) {
+	echo $sql;
+	//echo $result;
+	echo ' is the result of the query';
+
+	if ($result==false) {
 		echo "Authentication Error";
 		exit();
 	}
@@ -88,7 +92,7 @@ if (isset($_REQUEST['Login'])) {
 
 					<!-- username-password -->
 					<div class="username-password">
-						<form id="form" action="login.php">
+						<form id="form">
 							  <input id="username" type="text" placeholder="Username" name="username">
 							  <br><br>
 							  <input id="password" type="password" placeholder="Password" name="password">
