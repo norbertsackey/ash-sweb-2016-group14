@@ -47,9 +47,9 @@
 					<!-- username-password -->
 					<div class="username-password">
 						<form id="form" action="home.html">
-							  <input id="username" type="text" name="username">
+							  <input id="username" type="text" placeholder="Username" name="username">
 							  <br><br>
-							  <input id="password" type="password" name="password">
+							  <input id="password" type="password" placeholder="Password" name="password">
 
 							  <br> <br>
 
