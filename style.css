@@ -275,6 +275,10 @@ html, body {
 	text-align: center;
 }
 
+#content-background{
+	background-image: url("images/lab2.jpeg");
+}
+
 .center-form {
 	padding-top: 5em;
 }
@@ -297,7 +301,7 @@ html, body {
 
 .footer {
 	background-color: #212121;
-	height: 15%;
+	height: 20%;
 	width: 100%;
 	color: white;
 }
@@ -306,6 +310,7 @@ html, body {
 	padding-top: 3%;
 	vertical-align: middle;
 	text-align: center;
+	margin-top: 0px;
 }
 
 #topdiv {
@@ -368,7 +373,6 @@ html, body {
 }
 
 .welcome-user {
-	/*background-color: blue;*/
 	height: 50%;
 	right: 0;
 	position: absolute;
@@ -377,6 +381,7 @@ html, body {
 	top: 0;
 	margin: auto;
 	vertical-align: middle;
+	color: white;
 }
 
 .welcome-username {
@@ -385,4 +390,10 @@ html, body {
 
 .welcome-date {
 	font-size: 80px;
+}
+
+.color {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(33, 33, 33, 0.6);
 }

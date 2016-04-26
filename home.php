@@ -113,18 +113,16 @@
 	</div>
 
 	<!-- C O N T E N T -->
-	<div class="content" background="/images/lab2.jpeg">
-
+	<div class="content" id="content-background">
+		<div class="color">
+		
 		<div class="welcome-user">
 			<p class="welcome-username"> Welcome <?php echo $_SESSION['lname'].", ".$_SESSION['fname']?>  </p>
 			<p class="welcome-date"> <?php echo date('l').", ". date("m/d/y",time()) ?> </p>
 		</div>
 
-
 		</div>
-
 	</div>
-
 
 	<!-- F O O T E R -->
 	<div class="footer">

@@ -1,3 +1,17 @@
+<?php
+	/**
+	* Start Session after a successful login
+	*/ 
+	session_start();
+	if(isset($_SESSION['User_Id'])) {
+	} else {
+		echo "user id is not set";
+		header("location: login.php");
+		die();
+	}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <html lang="en">
@@ -77,9 +91,9 @@
 		<!-- Username -->
 		<div class="username">
 			<div class="dropdown">
-				<span class="username-text"> Username </span>
+				<span class="username-text"> <?php echo $_SESSION['username']; ?> </span>
 					<div class="dropdown-content">
-							<a href="login.html"> Logout </a>
+							<a href="login.php"> Logout </a>
 						</div>
 				<img class="usericon" src="images/usericon.png" alt="usericon">
 			</div>
@@ -101,49 +115,50 @@
 	<div class="content">
 		<div id ="topdiv">
 			<p class='heading-style'> Lab Equipment Information </p>
+			<p> Double click to edit cell </p>
 		</div>
 
 		<div id="middlediv">
 
 			<script type="text/javascript">
 
-			$(document).ready(function() {
+			// $(document).ready(function() {
 
-				/**
-				* Function to show tooltip
-				*/
-				var showTooltip = function(event) {
-				   $('div.tooltip').remove();
-				   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
-				     .appendTo('td');
-				   changeTooltipPosition(event);
-				};
+			// 	/**
+			// 	* Function to show tooltip
+			// 	*/
+			// 	var showTooltip = function(event) {
+			// 	   $('div.tooltip').remove();
+			// 	   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
+			// 	     .appendTo('td');
+			// 	   changeTooltipPosition(event);
+			// 	};
 
-				/**
-				* Function to change tooltip position
-				*/
-				var changeTooltipPosition = function(event) {
-					var tooltipX = event.pageX - 8;
-					var tooltipY = event.pageY + 8;
-					$('div.tooltip').css({top: tooltipY, left: tooltipX});
-				};
+			// 	/**
+			// 	* Function to change tooltip position
+			// 	*/
+			// 	var changeTooltipPosition = function(event) {
+			// 		var tooltipX = event.pageX - 8;
+			// 		var tooltipY = event.pageY + 8;
+			// 		$('div.tooltip').css({top: tooltipY, left: tooltipX});
+			// 	};
 
-				/**
-				* Function to hide the mouse events
-				*/
-				var hideTooltip = function() {
-					$('div.tooltip').remove();
-				};
+			// 	/**
+			// 	* Function to hide the mouse events
+			// 	*/
+			// 	var hideTooltip = function() {
+			// 		$('div.tooltip').remove();
+			// 	};
 
-				/**
-				* Function to bind the mouse events to the target
-				*/
-				$("td#hint").bind({
-					mousemove : changeTooltipPosition,
-					mouseenter : showTooltip,
-					mouseleave: hideTooltip
-				});
-			});
+			// 	/**
+			// 	* Function to bind the mouse events to the target
+			// 	*/
+			// 	$("td#hint").bind({
+			// 		mousemove : changeTooltipPosition,
+			// 		mouseenter : showTooltip,
+			// 		mouseleave: hideTooltip
+			// 	});
+			// });
 
 
 				/**

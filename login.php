@@ -58,51 +58,8 @@ if (isset($_REQUEST['username'])) {
 
 
 }
-	// $db = new mysqli("localhost","root","","lab_inventory2016");
-
-	// if($db->connect_errno) {
-	// 	echo "Error authenticating connection {$db->connect_errno}";
-	// 	exit();
-	// }
-
-	// // Initialize variables
-	// $username = $_REQUEST['username'];
-	// $password = $_REQUEST['password'];
-
-	// echo "the username is ".$username." and the password is ".$password."\n";
-
-	// // Query
-	// $sql = "SELECT User_Id, User_Name, User_Pword, Firstname, Lastname FROM users WHERE User_Name = '$username'";
-
-	// $result = $db->query($sql);
-
-	// echo $sql;
-	// //echo $result;
-	// // echo ' is the result of the query';
-
-	// if ($result) {
-	// 	$row = $db->fetch_assoc();
-
-	// 	if ($row['User_Pword'] == $password) {
-	// 		session_start();
-	// 		$_SESSION['User_Id'] = $row['User_Id'];
-	// 		header("location: home.php");
-	// 	}
-
-	// 	else {
-	// 		echo "Incorrect Password";
-	// 		exit();
-	// 	}
-	// } else{
-	// 	echo "User does not exist";
-	// 	exit();
-	// }
-
-	
-// }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -158,12 +115,6 @@ if (isset($_REQUEST['username'])) {
 							  <input id="password" type="password" placeholder="Password" name="password">
 
 							  <br> <br>
-
-							<!-- <select name="usergroup">
-								<option value=""> Select Usergroup </option>
-								<option value="1"> Admin </option>
-								<option value="2"> Student </option>
-							</select> -->
 
 							<br> <br>
 

@@ -20,7 +20,7 @@
 
 		<!-- Items in Menu bar -->
 		<div class="menu-wrapper">
-				<a class="menu-item" href="home.html"> HOME </a>
+				<a class="menu-item" href="home.php"> HOME </a>
 
 				<div class="dropdown">
 				<a class="menu-item" href="#"> EQUIPMENT </a>
@@ -76,7 +76,7 @@
 		<!-- Username -->
 		<div class="username">
 			<div class="dropdown">
-				<span class="username-text"> Username </span>
+				<span class="username-text"> <?php echo $_SESSION['username']; ?> </span>
 					<div class="dropdown-content">
 							<a href="login.html"> Logout </a>
 						</div>
