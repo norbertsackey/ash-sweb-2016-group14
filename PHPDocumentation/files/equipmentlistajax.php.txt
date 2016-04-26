@@ -1,0 +1,305 @@
+<?php
+	/**
+	* Start Session after a successful login
+	*/ 
+	session_start();
+	if(isset($_SESSION['User_Id'])) {
+	} else {
+		echo "user id is not set";
+		header("location: login.php");
+		die();
+	}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<html lang="en">
+	<head>
+		<title> Home </title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="js/jquery-1.12.1.js"> </script>
+
+	</head>
+
+<!-- B O D Y -->
+<body>
+
+	<!-- H E A D E R -->
+	<div class="header">
+
+		<!-- Logo-->
+		<div id="logo">
+			<img class="ashesi" src="images/ashesilogo.png" alt="ashesi">
+		</div>
+
+		<!-- Items in Menu bar -->
+		<div class="menu-wrapper">
+				<a class="menu-item" href="home.php"> HOME </a>
+
+				<div class="dropdown">
+				<a class="menu-item" href="#"> EQUIPMENT </a>
+				
+						<div class="dropdown-content">
+							<a href="equipmentlistajax.php"> View Equipment </a>
+							<a href="addequipment.html"> Add Equipment </a>
+							<a href="removeequipment.html"> Remove Equipment </a>
+						</div>
+				</div>
+
+				<div class="dropdown">
+				<a class="menu-item" href="#"> BOOKINGS </a>
+
+						<div class="dropdown-content">
+							<a href="viewbookings.html"> View Bookings </a>
+							<a href="editbookings.html"> Edit Bookings </a>
+							<a href="removebookings.html"> Remove Bookings </a>
+						</div>
+				</div>
+
+				<div class="dropdown">
+				<a class="menu-item" href="#"> BORROWERS </a>
+						<div class="dropdown-content">
+							<a href="borrowerslog.html"> Borrowers Log </a>
+							<a href="editborrowers.html"> Edit Borrower </a>
+							<a href="removeborrowers.html"> Remove Borrower </a>
+						</div>
+					</div>
+
+				<div class="dropdown">
+				<a class="menu-item" href="#"> SUPPLIERS </a>
+						<div class="dropdown-content">
+							<a href="viewsuppliers.html"> View Suppliers </a>
+							<a href="addsuppliers.html"> Add Suppliers </a>
+							<a href="editsuppliers.html"> Edit Suppliers </a>
+							<a href="removesuppliers.html"> Remove Suppliers </a>
+						</div>
+					</div>
+
+				<div class="dropdown">
+				<a class="menu-item" href="#"> LABS </a>
+						<div class="dropdown-content">
+							<a href="viewlabs.html"> View Labs </a>
+							<a href="addlabs.html"> Add Labs </a>
+							<a href="editlabs.html"> Edit Labs </a>
+							<a href="removelabs.html"> Remove Labs </a>
+						</div>
+					</div>
+		</div>
+
+		<!-- Username -->
+		<div class="username">
+			<div class="dropdown">
+				<span class="username-text"> <?php echo $_SESSION['username']; ?> </span>
+					<div class="dropdown-content">
+							<a href="login.php"> Logout </a>
+						</div>
+				<img class="usericon" src="images/usericon.png" alt="usericon">
+			</div>
+		</div>
+
+	</div>
+
+	<!-- G R E Y  B A R -->
+	<div class="greybar">
+		<div class="search">
+			<form>
+				<input type="text" name="txtSearch">
+				<input type="submit" value="Search">
+			</form>
+		</div>
+	</div>
+
+	<!-- C O N T E N T -->
+	<div class="content">
+		<div id ="topdiv">
+			<p class='heading-style'> Lab Equipment Information </p>
+		</div>
+
+		<div id="middlediv">
+
+			<script type="text/javascript">
+
+			$(document).ready(function() {
+
+				/**
+				* Function to show tooltip
+				*/
+				var showTooltip = function(event) {
+				   $('div.tooltip').remove();
+				   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
+				     .appendTo('td');
+				   changeTooltipPosition(event);
+				};
+
+				/**
+				* Function to change tooltip position
+				*/
+				var changeTooltipPosition = function(event) {
+					var tooltipX = event.pageX - 8;
+					var tooltipY = event.pageY + 8;
+					$('div.tooltip').css({top: tooltipY, left: tooltipX});
+				};
+
+				/**
+				* Function to hide the mouse events
+				*/
+				var hideTooltip = function() {
+					$('div.tooltip').remove();
+				};
+
+				/**
+				* Function to bind the mouse events to the target
+				*/
+				$("td#hint").bind({
+					mousemove : changeTooltipPosition,
+					mouseenter : showTooltip,
+					mouseleave: hideTooltip
+				});
+			});
+
+
+				/**
+				*Function to process the request from the AjaxPageUrl
+				*@param xhr the url request
+				*@param status the status of the request
+				*/
+				function saveCellComplete(xhr,status){
+					if(status!="success"){
+						currentObject.innerHTML="error sending request";
+						return;
+					}
+					
+					var obj=$.parseJSON(xhr.responseText);
+					if(obj.result==0){
+						currentObject.innerHTML=obj.message;	
+					}
+					
+					currentObject.innerHTML = obj.message;
+
+
+				}
+
+				/**
+				*Function to save the edited cell
+				*@param id the equipment id
+				*@param the column id
+				*/
+				function saveCell(id, col){
+					var newText=$("#txtName").val();
+					alert(newText);	
+					var ajaxPageUrl = "equipmentajax.php?cmd="+col+"&txtName="+newText+"&equipID="+id;
+					alert(ajaxPageUrl);
+					$.ajax(ajaxPageUrl,
+							{
+								async: true,
+								complete: saveCellComplete,
+							}
+						);
+				}
+
+				currentObject = null;
+
+				/**
+				*Function to edit a single cell
+				*@param obj the current object
+				*@param id the equipment id
+				*@param col the column id
+				*/
+				function editCell(obj,id,col){
+					
+					var currentText=obj.innerHTML;
+
+					if (col == 3) {
+						obj.innerHTML="<select id=\"txtName\"> <option value=\"CheckedIn\"> CheckedIn </option> <option value=\"CheckedOut\"> CheckedOut </option><option value=\"Reserved\"> Reserved </option> <option value=\"Available\">Available</option><option value=\"Lost\"> Lost</option><option value=\"UnderRepairs\"> UnderRepairs </option> </select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";
+						currentObject=obj;
+					}
+
+					else if (col == 4) {
+						obj.innerHTML="<select id=\"txtName\"> <option value=\"Electronics\"> Electronics </option> <option value=\"Scientific Instruments\"> Scientific Instruments </option> <option value=\"Computers\"> Computers </option></select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";
+						currentObject=obj;
+
+					}
+
+					else{
+						obj.innerHTML="<input id='txtName' type='text'> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>"
+					$("#txtName").val(currentText);	
+					currentObject=obj;
+					}
+			}
+
+			</script>
+
+			<?php
+
+				/* Creates an object of the equipment class */
+				include_once("equipment.php");
+				$obj = new equipment();
+				$filter = false;
+
+				/* Search Equipments by text */
+				if (isset($_REQUEST['txtSearch'])) {
+					$filter = $_REQUEST['txtSearch'];
+					$row = $obj->searchTool($filter);
+				}
+
+				/* Display all tools */
+				else {
+					$row = $obj->searchTool($filter);
+				}
+
+				if (!$row) {
+					echo "Error searching tools";
+				}
+				
+				/* Display */
+					echo "<table border='1'>";
+
+						echo "<tr id='table-header'>";
+							echo "<td> EQUIP_ID </td>";
+							echo "<td> EQUIP_NAME </td>";
+							echo "<td> EQUIP_DESCRIPTION </td>";
+							echo "<td> EQUIP_STATUS </td>";
+							echo "<td> EQUIP_CATEGORY </td>";
+							echo "<td> EQUIP_PRICE </td>";
+							echo "<td> EQUIP_MANUFACTURER </td>";
+							echo "<td> LAB_ID </td>";
+							echo "<td> SUPPLIER_ID </td>";
+						echo "</tr>";
+
+					while ($row = $obj->fetch()) {
+
+					echo "<tr>";
+						echo 	"<td> {$row['Equip_ID']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},1)> {$row['Equip_Name']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},2)> {$row['Equip_Description']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},3)> {$row['Equip_Status']} </td>";
+						echo    "<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},4)> {$row['Equip_Category']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},5)> {$row['Equip_Price']} </td>";
+						echo	"<td id='hint' ondblclick= editCell(this,{$row['Equip_ID']},6)> {$row['Equip_Manufacturer']} </td>";
+						echo	"<td> {$row['Lab_ID']} </td>";
+						echo	"<td> {$row['Supplier_ID']} </td>";
+
+					echo "</tr>";
+				}
+					echo "</table>";
+			?>
+
+		</div>
+
+		<div id="bottomdiv">
+
+		</div>
+
+	</div>
+
+
+	<!-- F O O T E R -->
+	<div class="footer">
+		<p class="text"> Designed and created by Kwame Odame. All Rights Reserved </p>
+	</div>
+	
+</body>
+
+</html>

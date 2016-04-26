@@ -372,6 +372,10 @@ html, body {
 	font-size: 30px;
 }
 
+.tip {
+	font-size: 10px;
+}
+
 .welcome-user {
 	height: 50%;
 	right: 0;
