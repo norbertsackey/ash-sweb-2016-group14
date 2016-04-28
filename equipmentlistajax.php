@@ -114,51 +114,50 @@
 	<!-- C O N T E N T -->
 	<div class="content">
 		<div id ="topdiv">
-			<p class='heading-style'> Lab Equipment Information </p>
-			<p> Double click to edit cell </p>
+			<p class="heading-style"> Lab Equipment Information </p>
 		</div>
 
 		<div id="middlediv">
 
 			<script type="text/javascript">
 
-			// $(document).ready(function() {
+			$(document).ready(function() {
 
-			// 	/**
-			// 	* Function to show tooltip
-			// 	*/
-			// 	var showTooltip = function(event) {
-			// 	   $('div.tooltip').remove();
-			// 	   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
-			// 	     .appendTo('td');
-			// 	   changeTooltipPosition(event);
-			// 	};
+				/**
+				* Function to show tooltip
+				*/
+				var showTooltip = function(event) {
+				   $('div.tooltip').remove();
+				   $('<div class="tooltip">Double click to Edit Equipment Information</div>')
+				     .appendTo('td');
+				   changeTooltipPosition(event);
+				};
 
-			// 	/**
-			// 	* Function to change tooltip position
-			// 	*/
-			// 	var changeTooltipPosition = function(event) {
-			// 		var tooltipX = event.pageX - 8;
-			// 		var tooltipY = event.pageY + 8;
-			// 		$('div.tooltip').css({top: tooltipY, left: tooltipX});
-			// 	};
+				/**
+				* Function to change tooltip position
+				*/
+				var changeTooltipPosition = function(event) {
+					var tooltipX = event.pageX - 8;
+					var tooltipY = event.pageY + 8;
+					$('div.tooltip').css({top: tooltipY, left: tooltipX});
+				};
 
-			// 	/**
-			// 	* Function to hide the mouse events
-			// 	*/
-			// 	var hideTooltip = function() {
-			// 		$('div.tooltip').remove();
-			// 	};
+				/**
+				* Function to hide the mouse events
+				*/
+				var hideTooltip = function() {
+					$('div.tooltip').remove();
+				};
 
-			// 	/**
-			// 	* Function to bind the mouse events to the target
-			// 	*/
-			// 	$("td#hint").bind({
-			// 		mousemove : changeTooltipPosition,
-			// 		mouseenter : showTooltip,
-			// 		mouseleave: hideTooltip
-			// 	});
-			// });
+				/**
+				* Function to bind the mouse events to the target
+				*/
+				$("td#hint").bind({
+					mousemove : changeTooltipPosition,
+					mouseenter : showTooltip,
+					mouseleave: hideTooltip
+				});
+			});
 
 
 				/**
@@ -210,7 +209,16 @@
 				*/
 				function editCell(obj,id,col){
 					
-					var currentText=obj.innerHTML;
+					var currentHTMLContent=obj.innerHTML;
+
+					var currentText=null;
+
+    				var i = currentHTMLContent.indexOf("<div");
+    				var res = currentHTMLContent.substring(0, i);
+    				
+    				var currentText = res;
+
+
 
 					if (col == 3) {
 						obj.innerHTML="<select id=\"txtName\"> <option value=\"CheckedIn\"> CheckedIn </option> <option value=\"CheckedOut\"> CheckedOut </option><option value=\"Reserved\"> Reserved </option> <option value=\"Available\">Available</option><option value=\"Lost\"> Lost</option><option value=\"UnderRepairs\"> UnderRepairs </option> </select> <button class='clickspot' onclick='saveCell("+id+","+col+")'> save </button>";

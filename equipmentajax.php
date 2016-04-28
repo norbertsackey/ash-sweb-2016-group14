@@ -57,8 +57,8 @@
 		}
 
 		echo '{"result":1, "message": "'.$txtName.'"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 		}
 
 	/**
@@ -151,9 +151,9 @@
 			return;
 		}
 
-		echo '{"result":1, "Text":"done"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+		echo '{"result":1, "message": "'.$txtName.'"}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 	}
 
 	/**
@@ -183,8 +183,8 @@
 		}
 
 		echo '{"result":1, "message": "'.$txtName.'"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 	}
 
 	/**
@@ -214,8 +214,8 @@
 		}
 
 		echo '{"result":1, "message": "'.$txtName.'"}';
-			echo json_encode($obj->fetch());
-			echo '}';
+			// echo json_encode($obj->fetch());
+			// echo '}';
 	}	
 	
 ?>

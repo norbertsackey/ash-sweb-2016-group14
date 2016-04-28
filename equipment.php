@@ -73,13 +73,10 @@ class equipment extends adb {
 	*/
 	function editName($equipID,$txtName) {
 		$sql = "UPDATE equipment SET Equip_Name = '$txtName' WHERE Equip_ID = '$equipID'";
-		echo $sql;
-		if ($this->query($sql)) {
-			return;
-		}
-
-		else {
-			echo "Unable to update record";
+		
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 
@@ -92,12 +89,9 @@ class equipment extends adb {
 	function editDescription($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Description = '$txtName' WHERE Equip_ID = '$equipID'";
 
-		if ($this->query($sql)) {
-			return true;
-		}
-
-		else {
-			echo "Unable to update record";
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 
@@ -115,10 +109,6 @@ class equipment extends adb {
 		if ($result) {
 			return $result;
 		}
-
-		else {
-			echo "Unable to update record";
-		}
 	}
 
 	/** 
@@ -130,12 +120,9 @@ class equipment extends adb {
 	function editCategory($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Category = '$txtName' WHERE Equip_ID = '$equipID'";
 
-		if ($this->query($sql)) {
-			return;
-		}
-
-		else {
-			echo "Unable to update record";
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 
@@ -148,12 +135,9 @@ class equipment extends adb {
 	function editPrice($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Price = '$txtName' WHERE Equip_ID = '$equipID'";
 
-		if ($this->query($sql)) {
-			return;
-		}
-
-		else {
-			echo "Unable to update record";
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 
@@ -166,12 +150,9 @@ class equipment extends adb {
 	function editManufacturer($equipID, $txtName) {
 		$sql = "UPDATE equipment SET Equip_Manufacturer = '$txtName' WHERE Equip_ID = '$equipID'";
 
-		if ($this->query($sql)) {
-			return;
-		}
-
-		else {
-			echo "Unable to update record";
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 
@@ -183,12 +164,9 @@ class equipment extends adb {
 	function deleteTool($equipid) {
 		$sql = "DELETE FROM equipment WHERE Equipid = '$equipid'";
 
-		if ($this->query($sql)) {
-			return;
-		}
-
-		else {
-			echo "Unable to delete record";
+		$result = $this->query($sql);
+		if ($result) {
+			return $result;
 		}
 	}
 }
