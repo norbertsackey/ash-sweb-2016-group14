@@ -1,0 +1,146 @@
+\hypertarget{class_booking}{}\section{Booking Class Reference}
+\label{class_booking}\index{Booking@{Booking}}
+Inheritance diagram for Booking\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_booking}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Booking} ()\hypertarget{class_booking_a1e9a6bc6b4531385afaa068510394c10}{}\label{class_booking_a1e9a6bc6b4531385afaa068510394c10}
+
+\item 
+\hyperlink{class_booking_a926356c5cf1148e86b384c975e979a70}{add\+Booking} (\$Equip\+\_\+\+Id, \$User\+\_\+\+Id)
+\item 
+\hyperlink{class_booking_a4a891c8631da9e436cbfa3dc5a1af870}{search\+Bookings} (\$Equip\+Name)
+\item 
+\hyperlink{class_booking_a53c9c60dc2d5200976f52594175dc1eb}{unbook\+Equipment} (\$Booking\+\_\+\+Id)
+\item 
+\hyperlink{class_booking_ab79fef06fab5b9b19312651cf8ad79f5}{release\+Equip} (\$Equip\+\_\+\+Id)
+\item 
+{\bfseries book\+Equip} (\$Equip\+\_\+\+Id)\hypertarget{class_booking_a0fd3d89691c5f2391a7fa082ceb8cd01}{}\label{class_booking_a0fd3d89691c5f2391a7fa082ceb8cd01}
+
+\item 
+\hyperlink{class_booking_a3dba7af3ac89f0c7c191024c2bcbf2e5}{get\+Bookings} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_booking}{Booking} class 
+
+Definition at line 8 of file Booking.\+php.
+
+
+
+\subsection{Member Function Documentation}
+\index{Booking@{Booking}!add\+Booking@{add\+Booking}}
+\index{add\+Booking@{add\+Booking}!Booking@{Booking}}
+\subsubsection[{\texorpdfstring{add\+Booking(\$\+Equip\+\_\+\+Id, \$\+User\+\_\+\+Id)}{addBooking($Equip_Id, $User_Id)}}]{\setlength{\rightskip}{0pt plus 5cm}add\+Booking (
+\begin{DoxyParamCaption}
+\item[{}]{\$\+Equip\+\_\+\+Id, }
+\item[{}]{\$\+User\+\_\+\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_booking_a926356c5cf1148e86b384c975e979a70}{}\label{class_booking_a926356c5cf1148e86b384c975e979a70}
+Adds a new booking 
+\begin{DoxyParams}{Parameters}
+{\em int} & Equip\+Id ID of equipment \\
+\hline
+{\em timestamp} & time\+Booked timestamp of the moment equipment was booked by a user \\
+\hline
+{\em int} & User\+\_\+\+Id ID of student who booked equipment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean returns true if successful or false 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file Booking.\+php.
+
+\index{Booking@{Booking}!get\+Bookings@{get\+Bookings}}
+\index{get\+Bookings@{get\+Bookings}!Booking@{Booking}}
+\subsubsection[{\texorpdfstring{get\+Bookings()}{getBookings()}}]{\setlength{\rightskip}{0pt plus 5cm}get\+Bookings (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_booking_a3dba7af3ac89f0c7c191024c2bcbf2e5}{}\label{class_booking_a3dba7af3ac89f0c7c191024c2bcbf2e5}
+method to fetch for all bookings in the system \begin{DoxyReturn}{Returns}
+boolean returns true if successful or false 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Booking.\+php.
+
+\index{Booking@{Booking}!release\+Equip@{release\+Equip}}
+\index{release\+Equip@{release\+Equip}!Booking@{Booking}}
+\subsubsection[{\texorpdfstring{release\+Equip(\$\+Equip\+\_\+\+Id)}{releaseEquip($Equip_Id)}}]{\setlength{\rightskip}{0pt plus 5cm}release\+Equip (
+\begin{DoxyParamCaption}
+\item[{}]{\$\+Equip\+\_\+\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_booking_ab79fef06fab5b9b19312651cf8ad79f5}{}\label{class_booking_ab79fef06fab5b9b19312651cf8ad79f5}
+method to cgange the status of an equipment to avaiilable 
+\begin{DoxyParams}{Parameters}
+{\em int} & Equip\+\_\+\+Id ID of an equipment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean returns true if successful or false 
+\end{DoxyReturn}
+method to change the status of an equipment to reserved 
+\begin{DoxyParams}{Parameters}
+{\em int} & Equip\+\_\+\+Id ID of an equipment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean returns true if successful or false
+\end{DoxyReturn}
+
+
+Definition at line 72 of file Booking.\+php.
+
+\index{Booking@{Booking}!search\+Bookings@{search\+Bookings}}
+\index{search\+Bookings@{search\+Bookings}!Booking@{Booking}}
+\subsubsection[{\texorpdfstring{search\+Bookings(\$\+Equip\+Name)}{searchBookings($EquipName)}}]{\setlength{\rightskip}{0pt plus 5cm}search\+Bookings (
+\begin{DoxyParamCaption}
+\item[{}]{\$\+Equip\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_booking_a4a891c8631da9e436cbfa3dc5a1af870}{}\label{class_booking_a4a891c8631da9e436cbfa3dc5a1af870}
+method to search for bookings related to an equipment with a particular name 
+\begin{DoxyParams}{Parameters}
+{\em String} & Equip\+Name equipment name you want to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean returns true if successful or false 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file Booking.\+php.
+
+\index{Booking@{Booking}!unbook\+Equipment@{unbook\+Equipment}}
+\index{unbook\+Equipment@{unbook\+Equipment}!Booking@{Booking}}
+\subsubsection[{\texorpdfstring{unbook\+Equipment(\$\+Booking\+\_\+\+Id)}{unbookEquipment($Booking_Id)}}]{\setlength{\rightskip}{0pt plus 5cm}unbook\+Equipment (
+\begin{DoxyParamCaption}
+\item[{}]{\$\+Booking\+\_\+\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_booking_a53c9c60dc2d5200976f52594175dc1eb}{}\label{class_booking_a53c9c60dc2d5200976f52594175dc1eb}
+method to remove a booking for an equipment 
+\begin{DoxyParams}{Parameters}
+{\em int} & Booking\+\_\+\+Id unique ID of a previous booking \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean returns true if successful or false 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Booking.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/xampp/htdocs/projimp1/src/Booking.\+php\end{DoxyCompactItemize}

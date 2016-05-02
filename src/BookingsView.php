@@ -2,6 +2,7 @@
 		<head>
 			<title>Bookings</title>
 			<link rel="stylesheet" href="css/style.css">
+			<link href="bootstrap/bootstrap.min.css" rel="stylesheet">
 			<script type="text/javascript" src="jquery-2.1.3.js"></script>
 			<script>
 
@@ -43,13 +44,13 @@
 			}
             
 			table += "<tr"+ style +">";
-		    table += "<td>"+ obj.bookings[i].Booking_Id +"<td>";
-            table += "<td>"+ obj.bookings[i].User_Id +"<td>";
-            table += "<td>"+ obj.bookings[i].Equip_Id +"<td>";
-            table += "<td>"+ obj.bookings[i].Equip_Name +"<td>";
-            table += "<td>"+ obj.bookings[i].Equip_Category +"<td>";
-            table += "<td>"+ obj.bookings[i].Time_Booked +"<td>";
-            table += "<td><a href=Bookingcontroller.php?Equip_Id="+obj.Equip_Id+"&cmd=Unreserve &Booking_Id="+obj.Booking_Id+">Unreserve<a><td>";
+		    table += "<td>"+ obj.bookings[i].Booking_Id +"</td>";
+            table += "<td>"+ obj.bookings[i].User_Id +"</td>";
+            table += "<td>"+ obj.bookings[i].Equip_Id +"</td>";
+            table += "<td>"+ obj.bookings[i].Equip_Name +"</td>";
+            table += "<td>"+ obj.bookings[i].Equip_Category +"</td>";
+            table += "<td>"+ obj.bookings[i].Time_Booked +"</td>";
+            table += "<td><a href=Bookingcontroller.php?Equip_Id="+obj.Equip_Id+"&cmd=Unreserve &Booking_Id="+obj.Booking_Id+">Unreserve<a></td>";
             table +="</tr>";
             
         } 
@@ -96,10 +97,23 @@
     include_once("Booking.php");
 	$obj = new Booking();
 
+	
+  if(isset($_REQUEST['txtSearch'])){
+    $search_txt = $_REQUEST['txtSearch'];
+     if(!$obj->searchBookings($search_txt)){
+      echo "Error searching for Equipment";
+     }
+  }
+  else{
+      if(!$obj->getBookings()){
+      echo "Error getting Equipment";
+     }
+  }
+/*
 	 if(!$obj->getBookings()){
 			echo "Error getting Equipment";
 	  }
-	
+	*/
 
 
 	  $row=$obj->fetch(); 
