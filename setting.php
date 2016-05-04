@@ -1,4 +1,10 @@
 <?php
+/**
+   * @author Benedicta Amo Bempah
+   * @copyright 2016
+   ** description: This page communicates and connects with DB
+   */ 
+
 define("DB_HOST","localhost");
 define("DB_USERNAME","root");
 define("DB_PASSWORD","");
