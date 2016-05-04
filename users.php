@@ -107,7 +107,7 @@ class users extends adb{
 	
 
 }
-
+// -- trying test page for functionality
 //$obj =new users();
 //$row=$obj->getUsers();
 //echo ($row);
