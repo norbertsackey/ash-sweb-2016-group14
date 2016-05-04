@@ -1,3 +1,8 @@
+/**
+   * @author Benedicta Amo Bempah
+   * @copyright 2016
+   ** description: The CSS class that is used in the display_user.php page to add some style to lists provided. 
+   */ 
 table {
     border-collapse: collapse;
     width: 100%;
