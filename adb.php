@@ -2,7 +2,7 @@
 /**
    * @author Benedicta Amo Bempah
    * @copyright 2016
-   ** description: A main class to manage all classes. This class communicates with DB
+   ** description: A main class to manage all classes. This is an origin where all other class connect to function.
    */ 
 
 /**
