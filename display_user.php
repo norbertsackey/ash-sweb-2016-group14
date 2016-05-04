@@ -1,3 +1,10 @@
+<!--/**
+   * @author Benedicta Amo Bempah
+   * @copyright 2016
+   ** description: The display class tests the user class to see if functions are working well. 
+   This class communicates with DB but maily the users.php
+   */ 
+-->
 <html>
 <head>
     <title>Display Users</title>
